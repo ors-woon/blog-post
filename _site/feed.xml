@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jang chulwoon</title>
+    <description>공부하고 싶었던 내용을 정리하고있습니다</description>
+    <link>http://localhost:8080/</link>
+    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 26 Oct 2016 03:40:28 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 03:40:28 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
+    
+  </channel>
+</rss>

@@ -1,0 +1,58 @@
+title: "Jang chulwoon"
+description: "공부하고 싶었던 내용을 정리하고있습니다"
+about: "Hello world?"
+location: "경기도, 대한민국"
+email: ㅣlusiue@gmail.com
+baseurl: ""
+url: "http://himsel.me" # replace by your site's url
+twitter_username: your-name
+github_username:  Jangchulwoon
+author: ""
+
+# google analytics tracking code, please change the value
+g_analytics: ""
+
+# language settings
+isolang: ko
+close_btn: "Close"
+home_btn: "Home"
+projects_btn: "Projects"
+posts_btn: "Posts"
+imprint_btn: "Imprint"
+name_badge: "an article by"
+rss_badge: "Subscribe feed!"
+
+# build settings
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    tab_width: 4
+    
+# third party gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+  - jemoji
+
+whitelist:
+  - jekyll-paginate
+  - jekyll-gist
+  - jemoji
+  
+# exclude files
+exclude:
+  - LICENSE
+  - README.md
+
+port : 8080
