@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Oct 2016 04:28:27 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 04:28:27 +0000</lastBuildDate>
+    <pubDate>Wed, 26 Oct 2016 04:29:59 +0000</pubDate>
+    <lastBuildDate>Wed, 26 Oct 2016 04:29:59 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
   </channel>
