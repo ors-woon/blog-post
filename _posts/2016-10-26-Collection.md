@@ -94,48 +94,47 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
    
 (예시)   
      
-```   
+```
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+    import java.util.ArrayList;
+    import java.util.Collection;
+    import java.util.List;
 
-interface People {
-    void eat();
-    void sleep();
-}
-
-class Student implements  People {
-
-    @Override
-    public void eat() {
-        System.out.println("nice food  !");
+    interface People {
+        void eat();
+        void sleep();
     }
 
-    @Override
-    public void sleep() {
-        System.out.println("zzzzzz !");
+    class Student implements  People {
+    
+        @Override
+        public void eat() {
+            System.out.println("nice food  !");
+        }
+    
+        @Override
+        public void sleep() {
+            System.out.println("zzzzzz !");
+        }
+        public void study(){
+            System.out.println("studying !");
+        }
     }
-    public void study(){
-        System.out.println("studying !");
-    }
-}
 
 
-public class Main {
-    public static void act(List<? extends People> people){
-        people.get(0).eat();
-        //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
-
+    public class Main {
+        public static void act(List<? extends People> people){
+            people.get(0).eat();
+            //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
+    
+        }
+        public static void main(String args[]){
+            List<Student> list = new ArrayList();
+            Student student = new Student();
+            list.add(student);
+            act(list);
+        }
     }
-    public static void main(String args[]){
-        List<Student> list = new ArrayList();
-        Student student = new Student();
-        list.add(student);
-        act(list);
-    }
-}
-
 
 ```
    

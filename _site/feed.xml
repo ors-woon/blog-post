@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Oct 2016 07:13:47 +0000</pubDate>
-    <lastBuildDate>Mon, 31 Oct 2016 07:13:47 +0000</lastBuildDate>
+    <pubDate>Mon, 31 Oct 2016 07:17:22 +0000</pubDate>
+    <lastBuildDate>Mon, 31 Oct 2016 07:17:22 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -124,46 +124,45 @@ class 상속받을때 쓰는 extends 의미 그대로,  &amp;lt;? extends E&amp;
 &lt;p&gt;(예시)&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+    import java.util.ArrayList;
+    import java.util.Collection;
+    import java.util.List;
 
-interface People {
-    void eat();
-    void sleep();
-}
-
-class Student implements  People {
-
-    @Override
-    public void eat() {
-        System.out.println(&quot;nice food  !&quot;);
+    interface People {
+        void eat();
+        void sleep();
     }
 
-    @Override
-    public void sleep() {
-        System.out.println(&quot;zzzzzz !&quot;);
+    class Student implements  People {
+    
+        @Override
+        public void eat() {
+            System.out.println(&quot;nice food  !&quot;);
+        }
+    
+        @Override
+        public void sleep() {
+            System.out.println(&quot;zzzzzz !&quot;);
+        }
+        public void study(){
+            System.out.println(&quot;studying !&quot;);
+        }
     }
-    public void study(){
-        System.out.println(&quot;studying !&quot;);
-    }
-}
 
 
-public class Main {
-    public static void act(List&amp;lt;? extends People&amp;gt; people){
-        people.get(0).eat();
-        //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
-
+    public class Main {
+        public static void act(List&amp;lt;? extends People&amp;gt; people){
+            people.get(0).eat();
+            //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
+    
+        }
+        public static void main(String args[]){
+            List&amp;lt;Student&amp;gt; list = new ArrayList();
+            Student student = new Student();
+            list.add(student);
+            act(list);
+        }
     }
-    public static void main(String args[]){
-        List&amp;lt;Student&amp;gt; list = new ArrayList();
-        Student student = new Student();
-        list.add(student);
-        act(list);
-    }
-}
-
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -306,16 +305,16 @@ Object 클래스에서 상속받아 구현하기도 한다.&lt;/li&gt;
       </item>
     
       <item>
-        <title>Java-Collection[1] </title>
+        <title>Hello? </title>
         <description>&lt;p&gt;Hello?&lt;/p&gt;
 </description>
-        <pubDate>Wed, 26 Oct 2016 10:32:00 +0000</pubDate>
-        <link>http://localhost:8080/2016/10/26/Hello.html</link>
-        <guid isPermaLink="true">http://localhost:8080/2016/10/26/Hello.html</guid>
+        <pubDate>Thu, 20 Oct 2016 10:32:00 +0000</pubDate>
+        <link>http://localhost:8080/2016/10/20/Hello.html</link>
+        <guid isPermaLink="true">http://localhost:8080/2016/10/20/Hello.html</guid>
         
-        <category>Java</category>
+        <category>world</category>
         
-        <category>Collection</category>
+        <category>hello</category>
         
         
       </item>

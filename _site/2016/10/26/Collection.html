@@ -174,46 +174,45 @@ class 상속받을때 쓰는 extends 의미 그대로,  &lt;? extends E&gt; 는 
 <p>(예시)</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+    import java.util.ArrayList;
+    import java.util.Collection;
+    import java.util.List;
 
-interface People {
-    void eat();
-    void sleep();
-}
-
-class Student implements  People {
-
-    @Override
-    public void eat() {
-        System.out.println("nice food  !");
+    interface People {
+        void eat();
+        void sleep();
     }
 
-    @Override
-    public void sleep() {
-        System.out.println("zzzzzz !");
+    class Student implements  People {
+    
+        @Override
+        public void eat() {
+            System.out.println("nice food  !");
+        }
+    
+        @Override
+        public void sleep() {
+            System.out.println("zzzzzz !");
+        }
+        public void study(){
+            System.out.println("studying !");
+        }
     }
-    public void study(){
-        System.out.println("studying !");
-    }
-}
 
 
-public class Main {
-    public static void act(List&lt;? extends People&gt; people){
-        people.get(0).eat();
-        //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
-
+    public class Main {
+        public static void act(List&lt;? extends People&gt; people){
+            people.get(0).eat();
+            //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
+    
+        }
+        public static void main(String args[]){
+            List&lt;Student&gt; list = new ArrayList();
+            Student student = new Student();
+            list.add(student);
+            act(list);
+        }
     }
-    public static void main(String args[]){
-        List&lt;Student&gt; list = new ArrayList();
-        Student student = new Student();
-        list.add(student);
-        act(list);
-    }
-}
-
 
 </code></pre>
 </div>
@@ -367,7 +366,7 @@ Object 클래스에서 상속받아 구현하기도 한다.</li>
   
   <a class="waves-effect waves-teal btn-flat btn-large" href="/">Home</a>
   
-    <a class="waves-effect waves-teal btn-flat btn-large my-thin-btn" href="/2016/10/26/Hello.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    <a class="waves-effect waves-teal btn-flat btn-large my-thin-btn" href="/2016/10/20/Hello.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   
   </div>
 </article>
