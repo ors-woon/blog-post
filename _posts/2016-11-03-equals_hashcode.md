@@ -6,9 +6,6 @@ tags: ['Java', 'equals']
 author: "Jang chulwoon"
 ---
 
-
-## hashCode 와 equals [1]
-
 hashCode()와 equals() method 는 Object에 속해있는 method 입니다.    
 Java에서 Object class 는 모든 클레스의 superclass 입니다.   
 때문에 Java의 모든 class 는 Object의 method를 구현하고 있습니다.   
@@ -64,9 +61,10 @@ null이 아닌 참조값 x에 대해, x.equals(null)은 항상 false 입니다.
 > ( 대표적으로 Integer / Date 클래스가 이에 해당한다고 합니다. )       
 > 논리적 동일성은 객체가 동일한가?가 아닌 객체 안에 있는 값이 동일한가를 의미합니다.
 
-위 조건을 만족하지 않는다면 , 재정의하는 것을 생각해 봐야합니다.   
+위 조건 중 하나라도 만족한다면 , 재정의를 하지 않아도 됩니다.   
+(equals를 재정의할 때, 의도치 않은 오류가 생길 위험이 많습니다.  신중하게 재정의해야합니다.)     
 
-그렇다면 , 어떻게 재정의를 해야할까요 ? 
+
 
 
 object의 equals method   
@@ -87,23 +85,34 @@ Integer의 equals method
         return false;
     }
 ```
+( Integer 는 final class 로 상속을 막아놓은 class 입니다. )   
+Integer의 equals 를 보면 obj가 Integer type 인지 확인을 한 후,   
+맞다면, 기존 객체에 저장된 값과 넘어온 인자의 값을 비교합니다.     
+객체의 값이 아닌 객체 안의 값을 비교하기 위해 위와같은 방식으로 equals 를 구현하였습니다.   
 
+equals 와 관련이 있는 hashcode는 다음글에서 정리하도록 하겠습니다 .   
+ 
++
 
-Integer의 equals 를 보면 우선 인자의 obj가 Integer type 인지 확인을 한 후,   
-맞다면, 기존 객체에 저장된 값과 넘어온 인자의 값이 같으면 true를 반환하는 방식입니다.
+Object class 의 method를 보며 'equals 가 재정의 되는 경우가 있나 ?'라는 궁금증이 생겨   
+equals를 이해한 만큼 정리를 해보았습니다.   
+잘못된 부분이나 부족한 부분이 있다면 알려주세요 !    
+(언젠가 ..? 제대로된 equals method를 작성해 보고싶습니다 .. )  
+ 
+  
 
-~ ing ..    
-( equals를 잘못구현한 예제를 찾아보고 있습니다. )
-
-
+lusiue@gmail.com    
+2016-11-03 장철운. 
 
 
 
 참조   
 [1] [Java doc]('https://docs.oracle.com/javase/8/docs/api/')     
 [2] [건실성실착실 3실 청년!](`http://egloos.zum.com/iilii/v/3999066`)   
-[3] effective Java 
-
+[3] effective Java    
+[4] [JAVA / OBJECT의 EQUALS와 HASHCODE 메쏘드]('http://skylit.tistory.com/35')
 
 
  
+
+
