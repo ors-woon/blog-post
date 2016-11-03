@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Java-equals / hashCode[1] "
-date:   2016-11-03 12:32:00 +0200
+title:  "equals 와 Hashcode [1] "
+date:   2016-11-03 10:32:00 +0200
 tags: ['Java', 'equals']
 author: "Jang chulwoon"
 ---
+
 
 ## hashCode 와 equals [1]
 
@@ -106,5 +107,3 @@ Integer의 equals 를 보면 우선 인자의 obj가 Integer type 인지 확인�
 
 
  
-
-
