@@ -4,7 +4,7 @@
  <title>Jang chulwoon</title>
  <link href="http://localhost:8080/atom.xml" rel="self"/>
  <link href="http://localhost:8080"/>
- <updated>2016-10-31T07:17:22+00:00</updated>
+ <updated>2016-11-03T08:35:17+00:00</updated>
  <id>http://localhost:8080</id>
  <author>
    <name></name>
@@ -26,7 +26,7 @@
 &lt;ul&gt;
   &lt;li&gt;Collection 이란&lt;br /&gt;
 여러 객체의 그룹으로, Collection 인터페이스는 Collection 계층의 &lt;strong&gt;root interface&lt;/strong&gt; 입니다.  &lt;br /&gt;
-일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, &lt;strong&gt;Set , List&lt;/strong&gt; 같이 서브인터페이스로 구현을 제공합니다.&lt;/li&gt;
+(List / Queue Interface 등의 상위 Interface 입니다.  )&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;collection의 subInterface&lt;/code&gt;&lt;/p&gt;
@@ -34,6 +34,8 @@
 &lt;blockquote&gt;
   &lt;p&gt;BeanContext, BeanContextServices, BlockingDeque&lt;E&gt;, BlockingQueue&lt;E&gt;, Deque&lt;E&gt;, List&lt;E&gt;....&lt;/E&gt;&lt;/E&gt;&lt;/E&gt;&lt;/E&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, &lt;strong&gt;Set , List&lt;/strong&gt; 같이 서브인터페이스로 구현을 제공합니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;(+) Multisets은 직접적으로 인터페이스를 구현해야합니다.&lt;/p&gt;
@@ -81,11 +83,14 @@ ArrayList는 3가지의 생성자를 갖고 있는데, 그 중 2가지의 생성
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;만약 collection이 작동을 지원하지 않는다면 UnsupportedOperationException을 던집니다.
-    &lt;blockquote&gt;
-      &lt;p&gt;기능을 지원하지 않는 경우 발생하는 Exception&lt;/p&gt;
-    &lt;/blockquote&gt;
-  &lt;/li&gt;
+  &lt;li&gt;만약 collection이 작동을 지원하지 않는다면 UnsupportedOperationException을 던집니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;기능을 지원하지 않는 경우 발생하는 Exception&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
   &lt;li&gt;몇몇 collection 인터페이스는 인자에 대한 제한을 갖고 있습니다. &lt;br /&gt;
 null 인자를 금지한다거나, 그들의 속성값의 제한을 합니다.&lt;br /&gt;
 만약 자격이 없는 인자를 추가하려고 시도한다면 확인되지 않은 exception을 던질것입니다.&lt;/li&gt;
@@ -168,7 +173,7 @@ class 상속받을때 쓰는 extends 의미 그대로,  &amp;lt;? extends E&amp;
             list.add(student);
             act(list);
         }
-    }
+    }   
 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

@@ -14,12 +14,14 @@ author: "Jang chulwoon"
 
 + Collection 이란  
 여러 객체의 그룹으로, Collection 인터페이스는 Collection 계층의 **root interface** 입니다.    
-일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, **Set , List** 같이 서브인터페이스로 구현을 제공합니다.  
+(List / Queue Interface 등의 상위 Interface 입니다.  )
 
 
 `collection의 subInterface`   
 
 > BeanContext, BeanContextServices, BlockingDeque<E>, BlockingQueue<E>, Deque<E>, List<E>....   
+
+일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, **Set , List** 같이 서브인터페이스로 구현을 제공합니다.  
 
 > (+) Multisets은 직접적으로 인터페이스를 구현해야합니다.  
 
@@ -60,7 +62,8 @@ author: "Jang chulwoon"
 >ArrayList는 3가지의 생성자를 갖고 있는데, 그 중 2가지의 생성자는 위에서 말씀드린 생성자 입니다.   
 >2번째 생성자는 collection type의 인자를 받아 복제하여 사용하는 코드입니다.   
 
-+ 만약 collection이 작동을 지원하지 않는다면 UnsupportedOperationException을 던집니다. 
++ 만약 collection이 작동을 지원하지 않는다면 UnsupportedOperationException을 던집니다.    
+
 >기능을 지원하지 않는 경우 발생하는 Exception    
 
 + 몇몇 collection 인터페이스는 인자에 대한 제한을 갖고 있습니다.   
@@ -134,7 +137,7 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
             list.add(student);
             act(list);
         }
-    }
+    }   
 
 ```
    
