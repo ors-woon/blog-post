@@ -28,15 +28,15 @@ equals method는 null값이 아닌 object 간의 **동치성**을 구현하는 m
 `It is reflexive: for any non-null reference value x, x.equals(x) should return true.`      
 null 이외의 참조값 x 에 대해 x.equals(x)는 항상 true 여야만 합니다.  
 
-2. 대칭 
+2. 대칭       
 `It is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.`   
 null 이외의 참조값 x 와 y 에 대해 y.equals(x)가 true 이면 x.equals(y) 또한 true가 되야 합니다. 
  
-3. 이적   
+3. 이적    
 `It is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true. `    
 null 이외의 참조값 x , y ,z 에 대해, x.equals(y)가 ture를 반환하고 y.equals(z)가 ture 반환하면 x.equals(z) 또한 ture를 반환해야 합니다. 
    
-4. 일관   
+4. 일관    
 `It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified.`       
 null 이외의 참조값 x , y 에 대해, equals를 통해 비교되는 정보에 수정이 없다면, x.equals(y)의 호출의 결과는 계속해서 true나 false여야합니다.       
 (정보의 변화가 없다면 반환 값은 항상 일관되어져야 합니다.)    
@@ -46,7 +46,7 @@ null 이외의 참조값 x , y 에 대해, equals를 통해 비교되는 정보�
 null이 아닌 참조값 x에 대해, x.equals(null)은 항상 false 입니다.  
 
 코드 없이 언어로만 정리하면 당연한거 아닌가? 라는 생각이 듭니다. (저만 그런가요 ?)    
-코드와 함께 정리해보겠습니다 ...   
+Java에서 어떻게 구현하고 있는지 정리해보겠습니다.    
 
 ### Object 의 equals()    
 

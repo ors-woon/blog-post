@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 03 Nov 2016 14:20:04 +0000</pubDate>
-    <lastBuildDate>Thu, 03 Nov 2016 14:20:04 +0000</lastBuildDate>
+    <pubDate>Thu, 03 Nov 2016 14:25:07 +0000</pubDate>
+    <lastBuildDate>Thu, 03 Nov 2016 14:25:07 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -36,17 +36,17 @@ Java에서 Object class 는 모든 클레스의 superclass 입니다. &lt;br /&g
 null 이외의 참조값 x 에 대해 x.equals(x)는 항상 true 여야만 합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;대칭 
+    &lt;p&gt;대칭     &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;It is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.&lt;/code&gt; &lt;br /&gt;
 null 이외의 참조값 x 와 y 에 대해 y.equals(x)가 true 이면 x.equals(y) 또한 true가 되야 합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;이적 &lt;br /&gt;
+    &lt;p&gt;이적  &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;It is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true. &lt;/code&gt;  &lt;br /&gt;
 null 이외의 참조값 x , y ,z 에 대해, x.equals(y)가 ture를 반환하고 y.equals(z)가 ture 반환하면 x.equals(z) 또한 ture를 반환해야 합니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;일관 &lt;br /&gt;
+    &lt;p&gt;일관  &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified.&lt;/code&gt;     &lt;br /&gt;
 null 이외의 참조값 x , y 에 대해, equals를 통해 비교되는 정보에 수정이 없다면, x.equals(y)의 호출의 결과는 계속해서 true나 false여야합니다.     &lt;br /&gt;
 (정보의 변화가 없다면 반환 값은 항상 일관되어져야 합니다.)&lt;/p&gt;
@@ -59,7 +59,7 @@ null이 아닌 참조값 x에 대해, x.equals(null)은 항상 false 입니다.&
 &lt;/ol&gt;
 
 &lt;p&gt;코드 없이 언어로만 정리하면 당연한거 아닌가? 라는 생각이 듭니다. (저만 그런가요 ?)  &lt;br /&gt;
-코드와 함께 정리해보겠습니다 …&lt;/p&gt;
+Java에서 어떻게 구현하고 있는지 정리해보겠습니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;object--equals&quot;&gt;Object 의 equals()&lt;/h3&gt;
 
