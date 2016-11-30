@@ -2,7 +2,25 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:8080/2016/11/03/equals_hashcode.html</loc>
+    <loc>http://localhost:8080/2016/11/29/eclipse_img.html</loc>
+    
+    <lastmod>2016-11-29T08:32:00+00:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:8080/2016/11/10/equals_hashcode.2.html</loc>
+    
+    <lastmod>2016-11-10T08:32:00+00:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:8080/2016/11/03/equals_hashcode.1.html</loc>
     
     <lastmod>2016-11-03T08:32:00+00:00</lastmod>
     

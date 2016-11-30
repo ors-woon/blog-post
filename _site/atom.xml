@@ -4,7 +4,7 @@
  <title>Jang chulwoon</title>
  <link href="http://localhost:8080/atom.xml" rel="self"/>
  <link href="http://localhost:8080"/>
- <updated>2016-11-25T06:08:46+00:00</updated>
+ <updated>2016-11-30T03:42:20+00:00</updated>
  <id>http://localhost:8080</id>
  <author>
    <name></name>
@@ -13,10 +13,56 @@
 
  
  <entry>
+   <title>[project] eclipse 이미지 업로드문제</title>
+   <link href="http://localhost:8080/2016/11/29/eclipse_img.html"/>
+   <updated>2016-11-29T08:32:00+00:00</updated>
+   <id>http://localhost:8080/2016/11/29/eclipse_img</id>
+   <content type="html">&lt;h2 id=&quot;project-eclipse--&quot;&gt;[project] eclipse 이미지 업로드문제&lt;/h2&gt;
+
+&lt;p&gt;이클립스 및 스프링(sts)를 이용하여 프로젝트를 진행하고 있습니다. &lt;br /&gt;
+위 개발환경에서 이미지를 업로드하는 부분을 진행하고 있습니다.&lt;br /&gt;
+(Spring 환경에서 multipartResolver를 이용하여 진행하고있습니다.)&lt;/p&gt;
+
+&lt;p&gt;업로드하는 부분을 진행하면서, DB에 img를 넣는 것보다 img경로를 저장하는 편이 낫다는 조언을 받았습니다.&lt;/p&gt;
+
+&lt;p&gt;현재 프로젝트 내 resources 폴더에 img를 저장하고 경로를 저장하고 있습니다. 
+이 과정에서 File I/O를 이용하여 프로젝트내에 저장하는 부분까지는 문제가 없었으나, &lt;br /&gt;
+해당 resources 폴더를 refresh 하지 않으면 img 파일을 불러올 수가 없어, 구글링을 하던 도중 해결방법을 찾았습니다.&lt;/p&gt;
+
+&lt;p&gt;문제는 workspace에서 파일을 인식 못하기때문이라고 하네요&lt;/p&gt;
+
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;'http://okky.kr/article/245013'&quot;&gt;Java doc&lt;/a&gt;을 참고해주세요&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;요약   preferences-&amp;gt;General-&amp;gt;Workspace에서 상단에 refresh 체크박스 두개 체크&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;lusiue@gmail.com  &lt;br /&gt;
+2016-11-03 장철운.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>equals 와 Hashcode [진행x] </title>
+   <link href="http://localhost:8080/2016/11/10/equals_hashcode.2.html"/>
+   <updated>2016-11-10T08:32:00+00:00</updated>
+   <id>http://localhost:8080/2016/11/10/equals_hashcode.2</id>
+   <content type="html">&lt;p&gt;Hash code에 관한 부분은 추후 공부를 더 한후 정리하도록 하겠습니다 .&lt;/p&gt;
+
+&lt;p&gt;글 자체를 정리하는건 쉬우나 ..  머리로 이해하질 못하네요 ..&lt;/p&gt;
+
+&lt;p&gt;lusiue@gmail.com  &lt;br /&gt;
+2016-11-03 장철운.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>equals 와 Hashcode [1] </title>
-   <link href="http://localhost:8080/2016/11/03/equals_hashcode.html"/>
+   <link href="http://localhost:8080/2016/11/03/equals_hashcode.1.html"/>
    <updated>2016-11-03T08:32:00+00:00</updated>
-   <id>http://localhost:8080/2016/11/03/equals_hashcode</id>
+   <id>http://localhost:8080/2016/11/03/equals_hashcode.1</id>
    <content type="html">&lt;p&gt;hashCode()와 equals() method 는 Object에 속해있는 method 입니다.  &lt;br /&gt;
 Java에서 Object class 는 모든 클레스의 superclass 입니다. &lt;br /&gt;
 때문에 Java의 모든 class 는 Object의 method를 구현하고 있습니다. &lt;br /&gt;
