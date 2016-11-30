@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Nov 2016 03:49:17 +0000</pubDate>
-    <lastBuildDate>Wed, 30 Nov 2016 03:49:17 +0000</lastBuildDate>
+    <pubDate>Wed, 30 Nov 2016 07:54:36 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Nov 2016 07:54:36 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -25,11 +25,35 @@
 &lt;p&gt;문제는 workspace에서 파일을 인식 못하기때문이라고 하네요   &lt;br /&gt;
 실제 서버에 올릴때는 문제가 없다고하네요.&lt;/p&gt;
 
-&lt;p&gt;자세한 내용은 &lt;a href=&quot;'http://okky.kr/article/245013'&quot;&gt;Java doc&lt;/a&gt;을 참고해주세요&lt;/p&gt;
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;'http://okky.kr/article/245013'&quot;&gt;okky&lt;/a&gt;을 참고해주세요&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;요약   preferences-&amp;gt;General-&amp;gt;Workspace에서 상단에 refresh 체크박스 두개 체크&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;+덧&lt;/p&gt;
+
+&lt;p&gt;**DB에는 경로를 저장하고, img파일은 resources 폴더내에 저장하는 방향으로 개발을 하고있습니다.  **&lt;/p&gt;
+
+&lt;p&gt;이 과정에서 업로드 경로에 관해서 고민을 했는데요 ..&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;“C:\Users\lusiu\Desktop\dev_work\spring\BuskingRoad\src\main\webapp\resources\img\”;&lt;/p&gt;
+
+    &lt;p&gt;프로젝트 경로를 따서 저장하는 방향으로 진행하고 있었습니다. &lt;br /&gt;
+ 다만 실제 서버에 올릴 경우, 위 경로는 의미가 없어지기에 다른 방법을 찾던 도중 sevletcontext의 getRealPath()를 발견했습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;context.getRealPath(“/resources/img/”)&lt;/p&gt;
+
+    &lt;p&gt;sevletContext를 컨테이너에서 가져와 위와같이 사용했습니다. &lt;br /&gt;
+ 이렇게 사용 할 경우,   &lt;em&gt;*C:\Users\lusiu\Desktop\dev_work\spring.metadata.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\BuskingRoad\resources\img*&lt;/em&gt; &lt;br /&gt;
+ 의 경로를 가져오게 되네요.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;'http://androphil.tistory.com/entry/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8C%81-Spring%EC%97%90%EC%84%9C-%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%84%B8%ED%8C%85'&quot;&gt;스프링 팁 Spring에서 파일 업로드를 위한 세팅&lt;/a&gt;을 참고해주세요&lt;/p&gt;
 
 &lt;p&gt;lusiue@gmail.com  &lt;br /&gt;
 2016-11-29 장철운.&lt;/p&gt;
