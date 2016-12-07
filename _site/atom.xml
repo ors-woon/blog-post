@@ -4,7 +4,7 @@
  <title>Jang chulwoon</title>
  <link href="http://localhost:8080/atom.xml" rel="self"/>
  <link href="http://localhost:8080"/>
- <updated>2016-12-07T11:01:35+00:00</updated>
+ <updated>2016-12-07T11:03:17+00:00</updated>
  <id>http://localhost:8080</id>
  <author>
    <name></name>
@@ -281,9 +281,11 @@ sort(객체,comparator)을 사용하여 정렬이 가능합니다.  &lt;br /&gt;
 	        return name1.compareTo(name2);
 	    }
 	}
-```      결과는 다음과 같습니다.
+```     
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;결과는 다음과 같습니다.&lt;/p&gt;
 
 &lt;p&gt;comparable &lt;br /&gt;
 성적 :40	 이름 : 문씨 &lt;br /&gt;

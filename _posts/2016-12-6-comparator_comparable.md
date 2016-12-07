@@ -263,6 +263,7 @@ sort(객체,comparator)을 사용하여 정렬이 가능합니다.
 		    }
 		}
 	```     
+	
 결과는 다음과 같습니다.
 
 comparable   
