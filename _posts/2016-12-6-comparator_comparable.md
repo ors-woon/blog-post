@@ -80,7 +80,7 @@ Comparable은 compareTo라는 Method를 갖고있는데, 다음과 같습니다.
 		}
 			
 	
-	```   
+	```    
 예제의 결과값은 다음과 같습니다. 
 
 성적 :40	 이름 : 문씨   
@@ -123,7 +123,7 @@ jdk7 이상부터는 팀정렬로 , jdk6 이하 부터는 초기 합병정렬로
 	            while (runHi < hi && ((Comparable) a[runHi]).compareTo(a[runHi - 1]) >= 0)
 	                runHi++;
 	        }
-	```
+	```    
 
 scomparable을 이용하여 정렬되는 걸 볼 수 있습니다. 
 
@@ -139,7 +139,7 @@ Comparator 또한 다음과 같은 Method를 구현해야 합니다.
 
 	```
 		int compare(T o1, T o2)
-	```
+	```    
 우선 Comparator 의 예제를 보여드리겠습니다.
 
 	```
@@ -188,7 +188,7 @@ Comparator 또한 다음과 같은 Method를 구현해야 합니다.
 		    }
 		}
 
-	```
+	```    
 
 Comparable의 예제와 비교했을 때 차이점 다음과 같습니다.   
 
@@ -262,7 +262,7 @@ sort(객체,comparator)을 사용하여 정렬이 가능합니다.
 		        return name1.compareTo(name2);
 		    }
 		}
-	```
+	```     
 결과는 다음과 같습니다.
 
 comparable   

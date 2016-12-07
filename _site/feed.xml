@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 07 Dec 2016 10:59:17 +0000</pubDate>
-    <lastBuildDate>Wed, 07 Dec 2016 10:59:17 +0000</lastBuildDate>
+    <pubDate>Wed, 07 Dec 2016 11:01:35 +0000</pubDate>
+    <lastBuildDate>Wed, 07 Dec 2016 11:01:35 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -86,7 +86,7 @@ Comparable을 구현하고 있는 List와 배열은 자동적으로 Collection.s
 	}
 		
 
-```    예제의 결과값은 다음과 같습니다. 
+```     예제의 결과값은 다음과 같습니다. 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -133,7 +133,7 @@ Comparable을 구현하고 있는 List와 배열은 자동적으로 Collection.s
             while (runHi &amp;lt; hi &amp;amp;&amp;amp; ((Comparable) a[runHi]).compareTo(a[runHi - 1]) &amp;gt;= 0)
                 runHi++;
         }
-```
+```    
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -151,7 +151,7 @@ Comparator 또한 다음과 같은 Method를 구현해야 합니다. &lt;br /&gt
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```
 	int compare(T o1, T o2)
-``` 우선 Comparator 의 예제를 보여드리겠습니다.
+```     우선 Comparator 의 예제를 보여드리겠습니다.
 
 ```
 	public class Main {
@@ -199,7 +199,7 @@ Comparator 또한 다음과 같은 Method를 구현해야 합니다. &lt;br /&gt
 	    }
 	}
 
-```
+```    
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -275,7 +275,7 @@ sort(객체,comparator)을 사용하여 정렬이 가능합니다.  &lt;br /&gt;
 	        return name1.compareTo(name2);
 	    }
 	}
-``` 결과는 다음과 같습니다.
+```      결과는 다음과 같습니다.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
