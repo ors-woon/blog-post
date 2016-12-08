@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>[Java] Comparable 과 Comparator</title>
+    <meta name="description" content="Java언어에서 정렬을 돕기위해 제공되는 Comparable , Comparator Interface에 대해 정리해보겠습니다.   자세한 내용은 Java doc을 참고해주세요.">
+    <meta name="robots" content="index,follow">
+    
+        <meta name="author" content="Jang chulwoon">
+    
+    <meta itemprop="name" content="Jang chulwoon">
+
+    <meta property="og:url" content="http://localhost:8080/2016/12/06/WrapperClass.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Java] Comparable 과 Comparator" />
+    <meta property="og:description" content="공부하고 싶었던 내용을 정리하고있습니다" />
+    <meta property="og:image" content="http://localhost:8080/images/favicon.png" />
+    <meta property="og:image:type" content="image/png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content=" "lukashimsel" " />
+    <meta name="twitter:title" content="[Java] Comparable 과 Comparator" />
+    <meta name="twitter:description" content="공부하고 싶었던 내용을 정리하고있습니다" />
+    <meta name="twitter:image" content="http://localhost:8080/images/favicon.png" />
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM feed">
+    <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="RSS feed">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="/styles/mlz/mlz.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/syntax.css">
+    <link rel="stylesheet" href="/styles/github-markdown.css">
+    <link rel="stylesheet" href="/styles/fa/css/font-awesome.min.css">
+
+</head>
+
+  <body>
+    <div class="container">
+      <div class="section my-section" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
+        <h1 itemprop="headline"><a class="my-name" href="/">Jang chulwoon</a></h1>
+        <p class="my-description" itemprop="text">
+          Hello world?
+          <br>
+          <i class="fa fa-map-marker"></i> 경기도, 대한민국
+        </p>
+        <div class="row">
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <article class="left-align" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <h2 class="my-mini-heading" itemprop="name headline">[Java] Comparable 과 Comparator<br>
+    <span class="my-mini-heading-sub">
+    <time datetime="2016-12-06T08:32:00+00:00" itemprop="datePublished">
+      Dec 6, 2016
+    </time>
+    </span></h2>
+
+  <div class="my-text-body">
+    <p>Java언어에서 정렬을 돕기위해 제공되는 Comparable , Comparator Interface에 대해 정리해보겠습니다.   <br />
+자세한 내용은 <a href="'https://docs.oracle.com/javase/8/docs/api/'">Java doc</a>을 참고해주세요.</p>
+
+<p>#Comparable</p>
+
+<p>Comparable Interface는 객체들을 정렬하기 위한 interface입니다. <br />
+Comparable을 구현하고 있는 List와 배열은 자동적으로 Collection.sort에 의해 정렬되어질 수 있고, sort에 추가적인 비교자를 필요로하지 않습니다. <br />
++
+만약 객체의 배열 또는 리스트를 정렬할때, Comparable을 구현하지 않고 sort Method를 호출하면 java.lang.ClassCastException 이 발생하네요.</p>
+
+<blockquote>
+  <p>comparable을 구현하고 있다면 해당 객체만 Array.sort()에 인자로 넣어주면 
+자동적으로 정렬이 됩니다. 자세한 내용은 예제를 참고해주세요.</p>
+</blockquote>
+
+<p>Comparable은 compareTo라는 Method를 갖고있는데, 다음과 같습니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	int compareTo(T o) 
+</code></pre>
+</div>
+
+<p>해당 Method는 -1,0,1 의 값을 반환하는데, 반환값이 0이면 두 수가 같음을 의미하고 인자로 들어온 값이 더 크면 -1을 , 작으면 1을 반환합니다.</p>
+
+<p>다음은 comparable을 구현한 예제입니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```
+
+	public class Main {
+	    public static void main(String[] args){
+	        Student[] students = new Student[5];
+	
+	        Student Jang = new Student("장철운",50);
+	        Student Kim = new Student("김씨",60);
+	        Student Moon = new Student("문씨",40);
+	        Student Jo = new Student("조씨",80);
+	        Student Pack = new Student("박씨",70);
+	        students[0] = Jang;
+	        students[1] = Kim;
+	        students[2] = Moon;
+	        students[3] = Jo ;
+	        students[4] = Pack;
+	
+	        Arrays.sort(students);
+	
+	        for(Student st : students){
+	            System.out.println("성적 :"+st.getScore()+"\t 이름 : "+ st.getName());
+	        }
+	
+	
+	    }
+	}
+	class Student implements Comparable{
+	    private int score;
+	    private String name;
+	
+	    Student(String name, int score){
+	        this.name = name;
+	        this.score=score;
+	    }
+	    public int getScore(){
+	        return score;
+	    }
+	    public String getName(){
+	        return name;
+	    }
+	
+	    @Override
+	    public int compareTo(Object o) {
+	        int input_score = ((Student)o).getScore();
+	        // input_score - this.score 를 하면 내림차순으로 정렬할 수 있습니다.
+	        return this.score - input_score;
+	    }
+	}
+		
+
+```     예제의 결과값은 다음과 같습니다. 
+</code></pre>
+</div>
+
+<p>성적 :40	 이름 : 문씨 <br />
+성적 :50	 이름 : 장철운 <br />
+성적 :60	 이름 : 김씨 <br />
+성적 :70	 이름 : 박씨 <br />
+성적 :80	 이름 : 조씨</p>
+
+<p>compareTo 메소드는 if문을 사용하지 않고도 단순히 return this.score - input_score 처럼 사용할 수 있습니다.</p>
+
+<p>+
+추가적으로 Array.sort()의 동작방식이 궁금해서 찾아봤습니다 .</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```
+    public static void sort(Object[] a) {
+        if (LegacyMergeSort.userRequested)
+            legacyMergeSort(a);
+        else
+            ComparableTimSort.sort(a, 0, a.length, null, 0, 0);
+    }
+```
+</code></pre>
+</div>
+
+<p>jdk7 이상부터는 팀정렬로 , jdk6 이하 부터는 초기 합병정렬로 동작한다는 구문입니다. <br />
+만약 초기합병정렬로 실행하고 싶다면, 다음과 같이 환경설정을 해야합니다. 
+  -Djava.util.Arrays.useLegacyMergeSort=true</p>
+
+<blockquote>
+  <p>시스템 프로퍼티로 실행할 경우엔 동작하지 않는다고 하네요.</p>
+</blockquote>
+
+<p>( 정렬과 관련해선 추후 정리하도록 하겠습니다. 간단히 팀 정렬은 개선된 합병정렬과 삽입정렬의 조합으로 만들어진 알고리즘이라고합니다. )</p>
+
+<p>조금 더 깊게 들어가보면 다음과 같은 로직을 볼 수 있는데,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```
+        if (((Comparable) a[runHi++]).compareTo(a[lo]) &lt; 0) { // Descending
+            while (runHi &lt; hi &amp;&amp; ((Comparable) a[runHi]).compareTo(a[runHi - 1]) &lt; 0)
+                runHi++;
+            reverseRange(a, lo, runHi);
+        } else {                              // Ascending
+            while (runHi &lt; hi &amp;&amp; ((Comparable) a[runHi]).compareTo(a[runHi - 1]) &gt;= 0)
+                runHi++;
+        }
+```    
+</code></pre>
+</div>
+
+<p>scomparable을 이용하여 정렬되는 걸 볼 수 있습니다.</p>
+
+<blockquote>
+  <p>요약하면, comparable은 compareTo(T o) Method를 구현해야하고, 구현한 배열과 리스트는 Collection.sort 시 추가적인 기준을 제시하지 않아도 자동적으로 정렬 할 수 있습니다.</p>
+</blockquote>
+
+<p>#Comparator</p>
+
+<p>Comparable과 마찬가지로 객체들을 정렬하기 위한 Interface입니다. <br />
+Comparator 또한 다음과 같은 Method를 구현해야 합니다. <br />
+( Comparable과 달리 인자를 2개 받는 Method 입니다. )</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```
+	int compare(T o1, T o2)
+```     우선 Comparator 의 예제를 보여드리겠습니다.
+
+```
+	public class Main {
+	    public static void main(String args[]){
+	        Student[] students = new Student[5];
+	        Student Jang = new Student("장철운",50);
+	        Student Kim = new Student("김씨",60);
+	        Student Moon = new Student("문씨",40);
+	        Student Jo = new Student("조씨",80);
+	        Student Pack = new Student("박씨",70);
+	
+	        students[0] = Jang;
+	        students[1] = Kim;
+	        students[2] = Moon;
+	        students[3] = Jo ;
+	        students[4] = Pack;
+	        Arrays.sort(students, new StudentCompare());
+	
+	        for(Student st : students){
+	            System.out.println("성적 :"+st.getScore()+"\t 이름 : "+ st.getName());
+	        }
+	    }
+	
+	}
+	class StudentCompare implements Comparator&lt;Student&gt; {
+	
+	    @Override
+	    public int compare(Student o1, Student o2) {
+	        return o1.getScore() - o2.getScore();
+	    }
+	}
+	class Student{
+	    private int score;
+	    private String name;
+	
+	    Student(String name, int score){
+	        this.name = name;
+	        this.score=score;
+	    }
+	    public int getScore(){
+	        return score;
+	    }
+	    public String getName(){
+	        return name;
+	    }
+	}
+
+```    
+</code></pre>
+</div>
+
+<p>Comparable의 예제와 비교했을 때 차이점 다음과 같습니다.</p>
+
+<p>클래스 내에서 정렬 기준을 설정   (comparable) / sort(객체) <br />
+외부에서 정렬 기준을 설정  (comparator) / sort(객체,comparator)</p>
+
+<p>만약 comparable의 기준이 아닌 comparator 의 기준으로 정렬하고 싶다면 <br />
+sort(객체,comparator)을 사용하여 정렬이 가능합니다.  <br />
+사용 예시는 다음과 같습니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```
+	public class Main {
+	    public static void main(String[] args){
+	        Student[] students = new Student[5];
+	
+	        Student Jang = new Student("장철운",50);
+	        Student Kim = new Student("김씨",60);
+	        Student Moon = new Student("문씨",40);
+	        Student Jo = new Student("조씨",80);
+	        Student Pack = new Student("박씨",70);
+	        students[0] = Jang;
+	        students[1] = Kim;
+	        students[2] = Moon;
+	        students[3] = Jo ;
+	        students[4] = Pack;
+	
+	        Arrays.sort(students);
+	        System.out.println("comparable");
+	        for(Student st : students){
+	            System.out.println("성적 :"+st.getScore()+"\t 이름 : "+ st.getName());
+	        }
+	
+	        System.out.println("comparator");
+	        Arrays.sort(students,new StudentCompare());
+	        for(Student st : students){
+	            System.out.println("성적 :"+st.getScore()+"\t 이름 : "+ st.getName());
+	        }
+	        
+	    }
+	}
+	
+	class Student implements Comparable{
+	    private int score;
+	    private String name;
+	
+	    Student(String name, int score){
+	        this.name = name;
+	        this.score=score;
+	    }
+	    public int getScore(){
+	        return score;
+	    }
+	    public String getName(){
+	        return name;
+	    }
+	
+	    @Override
+	    public int compareTo(Object o) {
+	        int input_score = ((Student)o).getScore();
+	        // input_score - this.score 를 하면 내림차순으로 정렬할 수 있습니다.
+	        return this.score - input_score;
+	    }
+	}
+
+	class StudentCompare implements Comparator&lt;Student&gt; {
+	
+	    @Override
+	    public int compare(Student o1, Student o2) {
+	        String name1 = o1.getName().toUpperCase();
+	        String name2 = o2.getName().toUpperCase();
+	        return name1.compareTo(name2);
+	    }
+	}
+```     
+</code></pre>
+</div>
+
+<p>결과는 다음과 같습니다.</p>
+
+<p>comparable <br />
+성적 :40	 이름 : 문씨 <br />
+성적 :50	 이름 : 장철운 <br />
+성적 :60	 이름 : 김씨 <br />
+성적 :70	 이름 : 박씨 <br />
+성적 :80	 이름 : 조씨 <br />
+comparator <br />
+성적 :60	 이름 : 김씨 <br />
+성적 :40	 이름 : 문씨 <br />
+성적 :70	 이름 : 박씨 <br />
+성적 :50	 이름 : 장철운 <br />
+성적 :80	 이름 : 조씨</p>
+
+<p>예시는 comparable 시엔 score을 기준으로, comparator 시엔 name을 기준으로 정렬하였습니다.</p>
+
+<blockquote>
+  <p>즉 기존에 정렬 방식이 아닌 새로운 기준의 정렬을 행할 경우 comparator을 정의하여 사용하면 됩니다.</p>
+</blockquote>
+
+<p>이상 Comparator 와 Comparable의 정리를 끝내도록 하겠습니다. <br />
+예시를 많이두어 이해하기 쉽도록 정리해보았습니다.</p>
+
+<p>참고자료 <br />
+<a href="'https://docs.oracle.com/javase/8/docs/api/'">Java doc</a> <br />
+<a href="'https://www.mkyong.com/java/java-object-sorting-example-comparable-and-comparator/'">Java object sorting example </a></p>
+
+<p>lusiue@gmail.com  <br />
+2016-12-6 장철운.</p>
+
+
+  </div>
+
+  <p class="center-align my-text-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    
+      <span itemprop="name">an article by Jang chulwoon</span>
+    
+    <br>
+    
+      <i class="fa fa-tags" aria-hidden="true"></i>
+      
+        <span class="my-tag">Java</span>&ensp;
+      
+        <span class="my-tag">Comparable</span>&ensp;
+      
+        <span class="my-tag">Comparator</span>&ensp;
+      
+    
+  </p>
+
+  <div class="center-align">
+  
+    <a class="waves-effect waves-teal btn-flat btn-large my-thin-btn disabled"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+  
+  <a class="waves-effect waves-teal btn-flat btn-large" href="/">Home</a>
+  
+    <a class="waves-effect waves-teal btn-flat btn-large my-thin-btn" href="/2016/12/06/comparator_comparable.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+  
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="my-footer z-depth-2">
+    <p>
+        <a class="waves-effect waves-teal btn-flat my-imprint-link" href="/imprint.html">Imprint</a>
+        
+        <a href="mailto:ㅣlusiue@gmail.com" class="waves-effect waves-teal btn-flat my-mail-link"><i class="fa fa-envelope-o"></i></a>
+        
+        
+        <a href="https://github.com/Jangchulwoon" class="waves-effect waves-teal btn-flat my-github-link"><i class="fa fa-github"></i></a>
+        
+        
+    </p>
+</footer>
+<script type="text/javascript" src="/styles/jquery.js"></script>
+<script type="text/javascript" src="/styles/mlz/mlz.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
