@@ -5,8 +5,8 @@
     <description>공부하고 싶었던 내용을 정리하고있습니다</description>
     <link>http://localhost:8080/</link>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 08 Dec 2016 13:41:38 +0000</pubDate>
-    <lastBuildDate>Thu, 08 Dec 2016 13:41:38 +0000</lastBuildDate>
+    <pubDate>Mon, 12 Dec 2016 01:47:24 +0000</pubDate>
+    <lastBuildDate>Mon, 12 Dec 2016 01:47:24 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -68,6 +68,8 @@ int a = integer //AutounBoxing
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;h1 id=&quot;wrapper-class&quot;&gt;원시형과 Wrapper class&lt;/h1&gt;
+
 &lt;p&gt;여기서 아까의 의문을 가져오겠습니다.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -88,26 +90,72 @@ Java 언어에서 Object는 참조형의 최상위 클래스입니다. &lt;br /&
 즉, 저 함수의 인자로 모든 참조형이 들어갈 수 있다는 의미입니다.&lt;/p&gt;
 
 &lt;p&gt;(다형성과 연결되는 부분이네요. ) &lt;br /&gt;
-만약 API를 디자인할때, 원시형이 쓰일 경우 int, double, boolean 등 인자 마다 Method를 정의해야합니다. &lt;br /&gt;
-반면에,  Wrapper class를 만들어 두고 인자형을 Object로 사용한다면
+만약 API를 디자인할때, 원시형이 쓰일 경우 int, double, boolean 등 인자 마다 Method를 정의해야합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;boolean contains(int a);
+boolean contains(double b);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;반면에,  Wrapper class를 만들어 두고 인자형을 Object로 사용한다면
 다음과 같이 하나의 메소드만으로 모든 참조형을 받아 처리할 수 있습니다.&lt;/p&gt;
 
 &lt;p&gt;이러한 이유때문에 Java 언어에서는 Wrapper class를 지원한다고 합니다.&lt;/p&gt;
 
-&lt;p&gt;재밌네요!&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;(추가 :: 2016 - 12-10)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그럼 반대로 원시형을 안쓰고 wrapper만 쓰면되지않나 ? 라는 의문점이 생겼는데요.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;원시형을 쓰지않고 참조형인 Wrapper만 쓴다면?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;처음에 떠오른 이유는 메모리 였습니다. &lt;br /&gt;
+모든 데이터를 참조형으로 선언한다면, ( 단순히 ) 비용문제가 크지 않을까?&lt;/p&gt;
+
+&lt;p&gt;구글링을 하던 도중 SliPP의 글을 질문글을 봤는데,  &lt;br /&gt;
+답변은 다음과 같습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wrapper class는 == 을 사용하지 못하고, equals만 써야한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Wrapper class의 경우 equals 를 쓰거나 intValue()등을 사용해아 하므로 추가적인 비용이 발생한다는 내용입니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;caching-&quot;&gt;Caching 이슈&lt;/h1&gt;
+
+&lt;p&gt;Integer는 참조형이지만, == 을 사용할 수 있는 범위가 존재합니다. &lt;br /&gt;
+-128 ~ 127 까지의 범위에서는 사용이 가능한데, 그 이유는 Integer내부에서 static class  IntegerCache 를 통해 일정 범위를 저장해두기 때문입니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private static class IntegerCache {  
+ 	//Integer을 까보시면 정의되어있습니다.
+} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Integer class는 -128~ 127의 범위를 cache로 저장해둔다.  &lt;br /&gt;
+때문에 해당 범위 내에선 == 를 사용 가능하다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;jdk 1.5 에서부턴 AutoBoxing이 지원되어, 큰 불편함이 없지만 &lt;br /&gt;
+알아두면 좋을 것같아서 정리해봤습니다. !&lt;/p&gt;
 
 &lt;p&gt;참조 &lt;br /&gt;
 [1] &lt;a href=&quot;'https://docs.oracle.com/javase/8/docs/api/'&quot;&gt;Java doc&lt;/a&gt;   &lt;br /&gt;
 [2] &lt;a href=&quot;`http://hyeonstorage.tistory.com/168`&quot;&gt;[JAVA] Wrapper class 란? 그리고 AutoBoxing&lt;/a&gt;   &lt;br /&gt;
-[3] &lt;a href=&quot;'http://stackoverflow.com/questions/20697868/why-we-need-wrapper-class'&quot;&gt;Why we need wrapper class [duplicate]&lt;/a&gt;&lt;/p&gt;
+[3] &lt;a href=&quot;'http://stackoverflow.com/questions/20697868/why-we-need-wrapper-class'&quot;&gt;Why we need wrapper class [duplicate]&lt;/a&gt;  &lt;br /&gt;
+[4] &lt;a href=&quot;'https://slipp.net/questions/66'&quot;&gt;자바에서 primitive type과 래퍼 클래스 중 무엇을 사용하나요?&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;lusiue@gmail.com  &lt;br /&gt;
 2016-12-8 장철운.&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 08 Dec 2016 08:32:00 +0000</pubDate>
-        <link>http://localhost:8080/2016/12/08/comparator_comparable.html</link>
-        <guid isPermaLink="true">http://localhost:8080/2016/12/08/comparator_comparable.html</guid>
+        <link>http://localhost:8080/2016/12/08/Wrapper.html</link>
+        <guid isPermaLink="true">http://localhost:8080/2016/12/08/Wrapper.html</guid>
         
         <category>Java</category>
         
@@ -423,8 +471,8 @@ comparator &lt;br /&gt;
 
 </description>
         <pubDate>Tue, 06 Dec 2016 08:32:00 +0000</pubDate>
-        <link>http://localhost:8080/2016/12/06/WrapperClass.html</link>
-        <guid isPermaLink="true">http://localhost:8080/2016/12/06/WrapperClass.html</guid>
+        <link>http://localhost:8080/2016/12/06/comparator_comparable.html</link>
+        <guid isPermaLink="true">http://localhost:8080/2016/12/06/comparator_comparable.html</guid>
         
         <category>Java</category>
         
