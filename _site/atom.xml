@@ -4,13 +4,193 @@
  <title>Jang chulwoon</title>
  <link href="http://localhost:8080/atom.xml" rel="self"/>
  <link href="http://localhost:8080"/>
- <updated>2016-12-19T03:43:19+00:00</updated>
+ <updated>2016-12-21T11:59:55+00:00</updated>
  <id>http://localhost:8080</id>
  <author>
    <name></name>
    <email>ㅣlusiue@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>[Web]RESTful? </title>
+   <link href="http://localhost:8080/2016/12/19/REST.html"/>
+   <updated>2016-12-19T10:32:00+00:00</updated>
+   <id>http://localhost:8080/2016/12/19/REST</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Spring을 혼자 독학 하셨다고 했는데,  &lt;br /&gt;
+본인이 생각하기에 RESTful의 가장 큰 특징 (장점)이 무엇인거 같나요 ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;오늘 면접에서 받은 질문입니다.  &lt;br /&gt;
+긴장을 있어서 자세히 기억은 나지 않지만, 이렇게 답했습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터 타입에 제약을 받지 않습니다.    &lt;br /&gt;
+.xml 및 .json 등 한 URI로 여러 타입의 데이터를 받을 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;…………..ㅎ  &lt;br /&gt;
+그래서 오늘은 RESTful에 대해 간단히 정리해보도록 하겠습니다.   &lt;br /&gt;
+자세한 내용은 &lt;a href=&quot;http://bcho.tistory.com/953&quot;&gt;조대협의 블로그&lt;/a&gt;을 참고했습니다.   &lt;br /&gt;
+예시는 제가 그동안 사용한 방식과 RESTful의 방식을 비교하며 정리했습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;restful---&quot;&gt;RESTful 탄생 , 개념&lt;/h1&gt;
+
+&lt;p&gt;REST란 &lt;strong&gt;RE&lt;/strong&gt;presentational &lt;strong&gt;S&lt;/strong&gt;ate &lt;strong&gt;T&lt;/strong&gt;ransfer의 약자로, 직역하면 표현 상태의 변경입니다.  &lt;br /&gt;
+REST는 HTTP의 창시자 중, Roy Fielding의 논문에 소개되었습니다.   &lt;br /&gt;
+현재 웹 아키텍쳐가 HTTP본래의 설계 우수성을 많이 사용하고 있지 못하다고 판단하여, 장점을 최대한 활용 할 수 있는 네트워크 기반의 아키텍쳐(REST)를 소개했습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;REST 란 Client 와 Server 간에 HTTP의 장점을 이용하여 자원을 주고 받는 방식입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;조금 더, 깊게 들어가보겠습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;구성&lt;/h1&gt;
+
+&lt;p&gt;REST는 HTTP URI + HTTP Method로 구성되어있습니다.  &lt;br /&gt;
+URI(자원의 위치)로 대상 자원을 명시하고, Method로 행위를 정의하고, 추가적으로 필요하다면 메세지(Payload)도 함께 전송합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;HTTP Method의 &lt;strong&gt;post, get , put , delete&lt;/strong&gt; 등을 이용하여 자원의 &lt;strong&gt;CRUD&lt;/strong&gt; 행위를 지정합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;정리하자면,  REST는 요소는 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;자원 (URI)&lt;/li&gt;
+  &lt;li&gt;행위 (HTTP Method)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;메세지 (Payload)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;REST는 &lt;strong&gt;URI + HTTP Method + payload&lt;/strong&gt; 로 구성됩니다.  &lt;br /&gt;
+URI는 자원을 표현해야하며, 행위는 &lt;strong&gt;HTTP Method&lt;/strong&gt;로 표현됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;예시&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jangchulwoon.github.io/&lt;/code&gt;라는 도메인에서 jcw에 대한 회원 정보를 가져오고 싶다면 다음과 같이 표현합니다.&lt;/p&gt;
+
+&lt;p&gt;(제가 사용하고 있는 표현) &lt;br /&gt;
+URI :  jangchulwoon.github.io?users=jcw  &lt;br /&gt;
+Method : GET&lt;/p&gt;
+
+&lt;p&gt;(RESTful 표현)   &lt;br /&gt;
+URI :  jangchulwoon.github.io/users/jcw   &lt;br /&gt;
+Method : GET&lt;/p&gt;
+
+&lt;p&gt;두 방식의 다른점이 보이지만, 위 예시에선 큰 차이를 느끼지 못했습니다.&lt;/p&gt;
+
+&lt;p&gt;다른 예시를 들어보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;(제가 사용하고 있는 표현)   &lt;br /&gt;
+URI :  jangchulwoon.github.io/update?user=jcw    &lt;br /&gt;
+Method : GET&lt;/p&gt;
+
+&lt;p&gt;jcw라는 사용자의 정보를 수정하는 표현입니다.&lt;/p&gt;
+
+&lt;p&gt;지금까지 진행한 프로젝트들은 GET,POST만을 이용하여 CRUD를 표현했습니다.  &lt;br /&gt;
+(Update와 delete도 GET,POST 만을 사용했죠 )&lt;/p&gt;
+
+&lt;p&gt;위 방식이 HTTP를 사용하면서 설계원칙을 전혀 지키고 있지 않다고 판단,  REST는 이 같은 문제를 해결하기위해 등장했습니다.&lt;/p&gt;
+
+&lt;p&gt;HTTP 설계 원칙을 지킨다면 다음과 같이 사용되겠죠.&lt;/p&gt;
+
+&lt;p&gt;URI :  jangchulwoon.github.io/user/jcw    &lt;br /&gt;
+Method : PUT &lt;br /&gt;
+payLoad  {
+	name : 변경 할 내용 
+}&lt;/p&gt;
+
+&lt;p&gt;HTTP Method 중 정보를 update 하는 Method 인 put을 사용하고  &lt;br /&gt;
+URI에는 행위에 해당하는 부분(update)이 포함되지 않아야 합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;다음과 같이 URI는 자원을 표기하고, Method는 알맞는 행위를 표현해야합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;[부록] HTTP Method&lt;/p&gt;
+
+    &lt;p&gt;HTTP프로토콜에 정의된 4개의 메소드들이 자원에 대한 CRUD를 정의합니다.&lt;/p&gt;
+
+    &lt;p&gt;POST : Create  &lt;br /&gt;
+  GET : Select   &lt;br /&gt;
+  PUT : Update   &lt;br /&gt;
+  DELETE : Delete&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;section-2&quot;&gt;특징&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;유니폼 인터페이스(Uniform Interface)&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;HTTP 표준에만 따른다면, 어떠한 플랫폼 및 언어에 종속받지 않고 사용 할 수 있는 &lt;strong&gt;느슨한 결합형태&lt;/strong&gt;의 구조이다.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;무상태성/스테이트리스(Stateless)&lt;/p&gt;
+
+    &lt;p&gt;HTTP는 기본적으로 상태 정보를 유지하고있지 않는 Stateless 이다.   &lt;br /&gt;
+ ( 상태 정보를 갖고있지 않기에 캐쉬 및 Session을 이용하여 login등을 처리한다.  )&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;마찬가지로 REST를 사용할 경우, 세션과 같은 컨텍스트 정보를 신경쓸 필요가 없기 때문에 구현이 단순해진다.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;캐싱 가능(Cacheable)&lt;/p&gt;
+
+    &lt;p&gt;REST의 가장 큰 장점은 HTTP를 사용하기에 웹에서 사용하는 기존 인프라를 그대로 활용 할 수 있다는 점이다.  &lt;br /&gt;
+ HTTP 프로토콜 기반의 로드밸런스, &lt;strong&gt;SSL, 캐싱 기능&lt;/strong&gt;을 적용 할 수 있다.&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;캐싱을 사용하면 응답시간 뿐만 아니라, 성능 그리고 서버의 자원 사용률을 향상 시킬 수 있다.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;자체 표현 구조(Self-descriptiveness)&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;API 메시지만 보고도 API를 이해할 수 있는 Self-descriptiveness 구조를 갖는다.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;section-3&quot;&gt;마치며&lt;/h1&gt;
+
+&lt;p&gt;간단하게 개념을 정립하는 수준으로 글을 정리해봤습니다. &lt;br /&gt;
+이 외로도 URI에 동사보다 명사를 써야한다 던가 , REST의 설계 원칙들이 있지만 &lt;br /&gt;
+관련된 프로젝트를 진행하며 차차 정리해보도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;( 얼마나 이상한 대답을 했는지 되돌아 보게되는 포스팅입니다. )    &lt;br /&gt;
+그동안 POST 및 GET만을 사용하여 모든 CRUD를 처리해왔는데 이 방식이 http를 완전히 활용하고 있지 못하다는 내용이네요. 정리한 내용을 프로젝트에 진행 할 수 있도록 노력해봐야겠습니다.&lt;/p&gt;
+
+&lt;p&gt;( REST를 맹신해선 안되겠지만 ) 
+시야가 넓어진 느낌입니다.&lt;/p&gt;
+
+&lt;p&gt;추후에 HTTP에 대해 정리해보도록 하겠습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;section-4&quot;&gt;참고자료&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bcho.tistory.com/953&quot;&gt;조대협의 블로그&lt;/a&gt;      &lt;br /&gt;
+&lt;a href=&quot;http://bcho.tistory.com/m/321&quot;&gt;1회 – REST 아키텍쳐에 대한 기본(DRAFT)&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;http://sonim1.tistory.com/105&quot;&gt;피와 살이 되는 블로그&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;https://spoqa.github.io/2012/02/27/rest-introduction.html&quot;&gt;REST 아키텍처를 훌륭하게 적용하기 위한 몇 가지 디자인 팁&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;lusiue@gmail.com  &lt;br /&gt;
+2016-12-19 장철운.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>[Java] Wrapper Class 와 Boxing,UnBoxing</title>
