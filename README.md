@@ -52,11 +52,11 @@ I made everything as easy as possible to edit. Most things can be found in the `
 * ````default_img```` - Image that will appear when posting links on social networks
 
 #### Profile Settings
-    name: 
+    name: Jangchulwoon
     profile_img: 
-    profile: 
-    social:
-      github: 
+    profile: hello ? 
+    social: https://www.facebook.com/profile.php?id=100011474825261
+      github: https://github.com/JangChulwoon
 
 * ````name```` - Full name for SEO purposes
 * ````profile_img```` - Image for the profile card (size to 2000x1200px)

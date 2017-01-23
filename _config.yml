@@ -1,5 +1,5 @@
 # Site settings
-email: 
+email: lusiue@gmail.com
 baseurl: ""
 paginate: 5
 paginate_path: "/blog/page-:num"
@@ -13,11 +13,11 @@ twitter_username:
 default_img: 
 
 # Profile settings
-name: 
+name: JangChulwoon
 profile_img: 
-profile: 
-social:
-  github: 
+profile: hello?
+social: 
+  github: https://github.com/JangChulwoon
 
 # Build settings
 include: ["_categories"]
