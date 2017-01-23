@@ -1,317 +1,139 @@
 <!DOCTYPE html>
-<html lang="ko" itemscope itemtype="http://schema.org/WebPage">
+<html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jang chulwoon</title>
-    <meta name="description" content="공부하고 싶었던 내용을 정리하고있습니다">
-    <meta name="robots" content="index,follow">
-    
-        <meta name="author" content="">
-    
-    <meta itemprop="name" content="Jang chulwoon">
+  <title>Trophy</title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta property="og:title" content="Trophy">
+  <meta property="og:url" content="http://localhost:4000/">
+  <meta property="og:site_name" content="Trophy">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="blog">
 
-    <meta property="og:url" content="http://localhost:8080/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jang chulwoon" />
-    <meta property="og:description" content="공부하고 싶었던 내용을 정리하고있습니다" />
-    <meta property="og:image" content="http://localhost:8080/images/favicon.png" />
-    <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:title" content="Trophy">
+  <meta name="twitter:url" content="http://localhost:4000/">
+  <meta name="twitter:site" content="Trophy">
+  <meta name="twitter:creator" content="@">
+  <meta name="twitter:domain" content="http://localhost:4000">
+  <meta property="twitter:image" content="">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content=" "lukashimsel" " />
-    <meta name="twitter:title" content="Jang chulwoon" />
-    <meta name="twitter:description" content="공부하고 싶었던 내용을 정리하고있습니다" />
-    <meta name="twitter:image" content="http://localhost:8080/images/favicon.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Lora|Space+Mono:700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM feed">
-    <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="RSS feed">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
 
+  <link rel="alternate" type="application/rss+xml" title="Trophy" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/">
 
-    <link rel="shortcut icon" href="/images/favicon.png">
-
-    <link rel="stylesheet" href="/styles/mlz/mlz.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/syntax.css">
-    <link rel="stylesheet" href="/styles/github-markdown.css">
-    <link rel="stylesheet" href="/styles/fa/css/font-awesome.min.css">
-
+  
 </head>
 
+
   <body>
-    <div class="container">
-      <div class="section my-section" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
-        <h1 itemprop="headline"><a class="my-name" href="/">Jang chulwoon</a></h1>
-        <p class="my-description" itemprop="text">
-          Hello world?
-          <br>
-          <i class="fa fa-map-marker"></i> 경기도, 대한민국
-        </p>
-        <div class="row">
-          <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <script src="/styles/index.js"></script>
-<div>
-  <a id="posts-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_posts();">Posts</a>
-  <a id="projects-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_projects();">Projects</a>
-</div>
-<div id="posts">
 
-  <h2 class="my-mini-heading">Posts</h2>
-
-  <ul>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/12/19/REST.html" class="my-link">[Web]RESTful? </a><br>
-        <span class="my-item-sub">Dec 19, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/12/08/Wrapper.html" class="my-link">[Java] Wrapper Class 와 Boxing,UnBoxing</a><br>
-        <span class="my-item-sub">Dec 8, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/12/06/comparator_comparable.html" class="my-link">[Java] Comparable 과 Comparator</a><br>
-        <span class="my-item-sub">Dec 6, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/11/29/eclipse_img.html" class="my-link">[project] eclipse 이미지 업로드문제</a><br>
-        <span class="my-item-sub">Nov 29, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/11/15/equals_hashcode.2.html" class="my-link">equals 와 Hashcode [진행x] </a><br>
-        <span class="my-item-sub">Nov 15, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/11/03/equals_hashcode.1.html" class="my-link">equals 와 Hashcode [1] </a><br>
-        <span class="my-item-sub">Nov 3, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/10/26/Collection.html" class="my-link">Java-Collection[1] </a><br>
-        <span class="my-item-sub">Oct 26, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/2016/10/20/Hello.html" class="my-link">Hello? </a><br>
-        <span class="my-item-sub">Oct 20, 2016</span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item">
-        <a href="/feed.xml" class="my-link">RSS</a> / <a href="/atom.xml" class="my-link">ATOM</a><br>
-        <span class="my-item-sub"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe feed!</span>
-    </li>
-  </ul>
-
+    <main>
+      <section class="previews">
   <div>
-    <a onclick="hide_lists();" class="waves-effect waves-teal btn-flat btn-large">Close</a>
-  </div>
-</div>
-
-
-<div id="projects">
-  <h2 class="my-mini-heading">Projects</h2>
-  <ul>
     
-    <li>
-      <p class="my-item"><a href="https://bitbucket.org/JangChulwoon/busking" class="my-link">Busking_Road</a><br>
-        <span class="my-item-sub">
-        2016 7 ~ ing .. busking (sub_title) is a web service related to the street performance.  development tool = sts(use MVC model ) / mysql / tomcat ... 
-      </span>
-      </p>
-    </li>
+      <figure class="absolute-bg preview__img" style="background-image: url('https://unsplash.it/2000/1200?image=1003');"></figure>
     
-    <li>
-      <p class="my-item"><a href="https://github.com/JangChulwoon/Book_Review" class="my-link">Book_Review</a><br>
-        <span class="my-item-sub">
-        학교 웹프로젝트로 진행했던 내용을 조금씩 수정하여 더 진행하고자 합니다 . (일시중단 상태) development tool = eclipse(JSP) / mysql / tomcat ...-2015 
-      </span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item"><a href="https://github.com/JangChulwoon/singerParsing" class="my-link">singerParsing</a><br>
-        <span class="my-item-sub">
-        노래방 번호을 파싱하여 json으로 뿌려주는 spring 프로젝트 입니다. 현재 노래노트(http://www.noraenote.com/) 라는 사이트에서 사용되고 있습니다. -2016
-      </span>
-      </p>
-    </li>
-    
-    <li>
-      <p class="my-item"><a href="https://github.com/JangChulwoon/naver_and_daum_rank" class="my-link">naver/daum Rank Pasing</a><br>
-        <span class="my-item-sub">
-        parsing 을 연습해보기 위해 만든 프로젝트 입니다. daum 과 naver의 검색 순위를 파싱하여 json으로 뿌려줍니다. - 2015  
-      </span>
-      </p>
-    </li>
-    
-  </ul>
-  <div>
-    <a onclick="hide_lists();" class="waves-effect waves-teal btn-flat btn-large">Close</a>
-  </div>
-</div>
-
-<noscript>
-  <div id="posts-noscript">
-
-    <h2 class="my-mini-heading">Posts</h2>
-
-    <ul>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/12/19/REST.html" class="my-link">[Web]RESTful? </a><br>
-          <span class="my-item-sub">Dec 19, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/12/08/Wrapper.html" class="my-link">[Java] Wrapper Class 와 Boxing,UnBoxing</a><br>
-          <span class="my-item-sub">Dec 8, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/12/06/comparator_comparable.html" class="my-link">[Java] Comparable 과 Comparator</a><br>
-          <span class="my-item-sub">Dec 6, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/11/29/eclipse_img.html" class="my-link">[project] eclipse 이미지 업로드문제</a><br>
-          <span class="my-item-sub">Nov 29, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/11/15/equals_hashcode.2.html" class="my-link">equals 와 Hashcode [진행x] </a><br>
-          <span class="my-item-sub">Nov 15, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/11/03/equals_hashcode.1.html" class="my-link">equals 와 Hashcode [1] </a><br>
-          <span class="my-item-sub">Nov 3, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/10/26/Collection.html" class="my-link">Java-Collection[1] </a><br>
-          <span class="my-item-sub">Oct 26, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/2016/10/20/Hello.html" class="my-link">Hello? </a><br>
-          <span class="my-item-sub">Oct 20, 2016</span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item">
-          <a href="/feed.xml" class="my-link">RSS</a> / <a href="/atom.xml" class="my-link">ATOM</a><br>
-          <span class="my-item-sub"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe feed!</span>
-      </li>
-    </ul>
-  </div>
-  <div id="projects-noscript">
-    <h2 class="my-mini-heading">Projects</h2>
-    <ul>
-      
-      <li>
-        <p class="my-item"><a href="https://bitbucket.org/JangChulwoon/busking" class="my-link">Busking_Road</a><br>
-          <span class="my-item-sub">
-        2016 7 ~ ing .. busking (sub_title) is a web service related to the street performance.  development tool = sts(use MVC model ) / mysql / tomcat ... 
-      </span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item"><a href="https://github.com/JangChulwoon/Book_Review" class="my-link">Book_Review</a><br>
-          <span class="my-item-sub">
-        학교 웹프로젝트로 진행했던 내용을 조금씩 수정하여 더 진행하고자 합니다 . (일시중단 상태) development tool = eclipse(JSP) / mysql / tomcat ...-2015 
-      </span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item"><a href="https://github.com/JangChulwoon/singerParsing" class="my-link">singerParsing</a><br>
-          <span class="my-item-sub">
-        노래방 번호을 파싱하여 json으로 뿌려주는 spring 프로젝트 입니다. 현재 노래노트(http://www.noraenote.com/) 라는 사이트에서 사용되고 있습니다. -2016
-      </span>
-        </p>
-      </li>
-      
-      <li>
-        <p class="my-item"><a href="https://github.com/JangChulwoon/naver_and_daum_rank" class="my-link">naver/daum Rank Pasing</a><br>
-          <span class="my-item-sub">
-        parsing 을 연습해보기 위해 만든 프로젝트 입니다. daum 과 naver의 검색 순위를 파싱하여 json으로 뿌려줍니다. - 2015  
-      </span>
-        </p>
-      </li>
-      
-    </ul>
-  </div>
-</noscript>
-          </div>
-        </div>
-      </div>
+    <div class="previews__container">
+      <span>Welcome to</span>
+      <h1>Trophy</h1>
     </div>
-    <footer class="my-footer z-depth-2">
-    <p>
-        <a class="waves-effect waves-teal btn-flat my-imprint-link" href="/imprint.html">Imprint</a>
+  </div>
+
+  <div>
+    <header>
+      <ul class="tabs">
+        <li class="tabs__item">Posts</li>
+        <li class="tabs__item">Categories</li>
+      </ul>
+    </header>
+
+    <div class="tab">
+      <ul itemscope itemtype="http://schema.org/Blog">
         
-        <a href="mailto:ㅣlusiue@gmail.com" class="waves-effect waves-teal btn-flat my-mail-link"><i class="fa fa-envelope-o"></i></a>
+          <li class="preview" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            <a class="preview__link" href="/2016/09/07/craft-beer/" itemprop="url">
+              <span class="preview__date" itemprop="datePublished" datetime="2016-09-07T00:00:00+00:00">Sep 7, 2016</span>
+              <h2 class="preview__header" itemprop="name">Craft Beer</h2>
+              <p class="preview__excerpt" itemprop="description">Tbh vaporware mumblecore iceland echo park DIY. Plaid woke next level enamel pin, vegan cred salvia pug. XOXO sartorial synth gluten-free, cold-pressed mumblecore craft beer helvetica. Vegan lyft squid, vice...</p>
+              <span class="preview__more">Read More</span>
+            </a>
+          </li>
         
-        
-        <a href="https://github.com/Jangchulwoon" class="waves-effect waves-teal btn-flat my-github-link"><i class="fa fa-github"></i></a>
-        
-        
-    </p>
+      </ul>
+
+      
+
+      <footer class="section-padding--sm footer">
+  <a class="footer__archive" href="/archive/">Archive</a>
+  <ul class="footer__social">
+    <li><a class="fa fa-lg fa-envelope-o" href="mailto:"></a></li>
+    
+      <li><a class="fa fa-lg fa-github" href="" target="_blank"></a></li>
+    
+  </ul>
 </footer>
-<script type="text/javascript" src="/styles/jquery.js"></script>
-<script type="text/javascript" src="/styles/mlz/mlz.js"></script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    </div>
 
-  ga('create', '', 'auto');
-  ga('send', 'pageview');
+    <div class="tab">
+  <ul class="cards">
+    
+      
+      <li class="card">
+        <a class="card__link" href="/category/juice/">
+          
+            <div class="card__img">
+              
+                <figure class="absolute-bg" style="background-image: url('https://unsplash.it/500/300?image=1003');"></figure>
+              
+            </div>
+          
+          <div class="card__container">
+            <h2 class="card__header">Juice</h2>
+            <p class="card__count">1 Posts</p>
+            <span class="card__more">View All</span>
+          </div>
+        </a>
+      </li>
+    
+  </ul>
 
-</script>
+  <footer class="section-padding--sm footer">
+  <a class="footer__archive" href="/archive/">Archive</a>
+  <ul class="footer__social">
+    <li><a class="fa fa-lg fa-envelope-o" href="mailto:"></a></li>
+    
+      <li><a class="fa fa-lg fa-github" href="" target="_blank"></a></li>
+    
+  </ul>
+</footer>
+
+</div>
+
+
+  </div>
+
+</section>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
 
 
   </body>
+
 </html>

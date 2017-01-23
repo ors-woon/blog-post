@@ -1,58 +1,33 @@
-title: "Jang chulwoon"
-description: "공부하고 싶었던 내용을 정리하고있습니다"
-about: "Hello world?"
-location: "경기도, 대한민국"
-email: ㅣlusiue@gmail.com
+# Site settings
+email: 
 baseurl: ""
-url: "" # replace by your site's url
+paginate: 5
+paginate_path: "/blog/page-:num"
+google_analytics: 
+
+# SEO settings
+title: Trophy
+description: 
+url: ""
 twitter_username: 
-github_username:  Jangchulwoon
-author: ""
+default_img: 
 
-# google analytics tracking code, please change the value
-g_analytics: ""
+# Profile settings
+name: 
+profile_img: 
+profile: 
+social:
+  github: 
 
-# language settings
-isolang: ko
-close_btn: "Close"
-home_btn: "Home"
-projects_btn: "Projects"
-posts_btn: "Posts"
-imprint_btn: "Imprint"
-name_badge: "an article by"
-rss_badge: "Subscribe feed!"
-
-# build settings
+# Build settings
+include: ["_categories"]
+exclude: ["_screenshots", "Gemfile", "Gemfile.lock"]
 markdown: kramdown
-highlighter: rouge
+permalink: /:year/:month/:day/:title/
 
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    tab_width: 4
-    
-# third party gems
-gems:
-  - jekyll-paginate
-  - jekyll-gist
-  - jemoji
+# Sass
+sass:
+  style: compressed
 
-whitelist:
-  - jekyll-paginate
-  - jekyll-gist
-  - jemoji
-  
-# exclude files
-exclude:
-  - LICENSE
-  - README.md
-
-port : 8080
+# Gems
+gems: [jekyll-paginate, jekyll-sitemap, octopress-autoprefixer]

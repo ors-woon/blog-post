@@ -1,13 +1,14 @@
 ---
 layout: default
 ---
-<article class="center-align">
-  <h2 class="my-mini-heading">{{ page.title }}</h2>
+<article>
 
-  <div class="my-text-body">
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  <div>
     {{ content }}
   </div>
-  <div class="center-align">
-    <a class="waves-effect waves-teal btn-flat btn-large" href="{{ site.baseurl }}/">{{ site.home_btn }}</a>
-  </div>
+
 </article>

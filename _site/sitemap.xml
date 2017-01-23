@@ -1,89 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://localhost:8080/2016/12/19/REST.html</loc>
-    
-    <lastmod>2016-12-19T10:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/12/08/Wrapper.html</loc>
-    
-    <lastmod>2016-12-08T08:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/12/06/comparator_comparable.html</loc>
-    
-    <lastmod>2016-12-06T08:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/11/29/eclipse_img.html</loc>
-    
-    <lastmod>2016-11-29T08:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/11/15/equals_hashcode.2.html</loc>
-    
-    <lastmod>2016-11-15T08:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/11/03/equals_hashcode.1.html</loc>
-    
-    <lastmod>2016-11-03T08:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/10/26/Collection.html</loc>
-    
-    <lastmod>2016-10-26T10:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:8080/2016/10/20/Hello.html</loc>
-    
-    <lastmod>2016-10-20T10:32:00+00:00</lastmod>
-    
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<url>
+<loc>http://localhost:4000/2016/09/07/craft-beer/</loc>
+<lastmod>2016-09-07T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/category/brunch/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/juice/</loc>
+</url>
 </urlset>
