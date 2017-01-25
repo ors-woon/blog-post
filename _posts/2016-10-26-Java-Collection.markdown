@@ -180,12 +180,14 @@ collection의 element들을 object 타입의 array로 변환하여 반환하는 
 이전의 toArray와 같은 방식으로 array를 반환하지만, 제네릭을 사용하여 타입을 사용자가 정할 수 있다는 차이가 있습니다.      
 
 
+###### 마치며
 
 Collection의 정의와 Method부분을 간단히 정리했습니다.  
 
 Collection은 한마디로 정의하면 객체들의 그룹이라고 말할 수 있겠네요.    
-Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을 작성하였습니다.                 
-   
-   
-     
+Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을 작성하였습니다.           
+
+부족한 부분 및 의견은 lusiue@gmail.com 으로 알려주세요 !     
+    
+            
 (2017-01-25  수정완료)    
