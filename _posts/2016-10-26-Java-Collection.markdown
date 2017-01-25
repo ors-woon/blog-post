@@ -68,7 +68,8 @@ ArrayList의 생성자는 다음과 같습니다.
 
 ###### Method  
 
-Java 8에 추가된 default method는 제외하고 정리해 보았습니다.      
+Java 8에 추가된 default method는 제외하고 몇가지 Method를 정리했습니다.      
+
     
 boolean add(E e)     
 Collection은 제네릭을 이용하여 선언됩니다. ( ex - List<Integer> list )     
@@ -132,22 +133,10 @@ boolean contains(Object o)
 
 인자로 받은 o 가 collection에 있으면 true를 반환. 없으면 false를 반환합니다.   
 
-boolean containAll(Collection<?> c)   
-
-인자로 받은 collection의 element 모두가  해당 collection에 있으면 true를 반환합니다.   
-
-boolean equeals(Object o)     
-int hashCode()      
-동일성과 동등성을 체크하기위한 method입니다.       
-
-
 boolean isEmpty()   
 
 Collection이 비어있으면 true를 반환. 비어있지 않으면 false를 반환합니다.
 
-Iterator<E> iterator()   
-
-Iterator 를 구현하기 위한 method입니다.   
 
 boolean remove(Object o)
 
@@ -175,12 +164,9 @@ Object[] toArray()
 collection의 element들을 object 타입의 array로 변환하여 반환하는 method 입니다.     
 
 
-<T> T[] toArray()      
-
-이전의 toArray와 같은 방식으로 array를 반환하지만, 제네릭을 사용하여 타입을 사용자가 정할 수 있다는 차이가 있습니다.      
-
 
 ###### 마치며
+
 
 Collection의 정의와 Method부분을 간단히 정리했습니다.  
 
@@ -190,4 +176,4 @@ Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을
 부족한 부분 및 의견은 lusiue@gmail.com 으로 알려주세요 !     
     
             
-(2017-01-25  수정완료)    
+(2017-01-25  수정 완료)    
