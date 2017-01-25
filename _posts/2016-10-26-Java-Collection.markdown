@@ -10,17 +10,30 @@ image-sm: https://unsplash.it/500/300?image=1003
 ---
 
 
-Java의 Collection Interface에 대한 글입니다.        
-[Java doc](https://docs.oracle.com/javase/8/docs/api/)의 내용을 정리했습니다.     
+
+###### Java의 Collection Interface    
+    
+    
+[세부내용은 다음을 참고해주세요.](https://docs.oracle.com/javase/8/docs/api/)     
+
+  
+###### 개념     
+
+Collection Interface는 Collection 계층의 root interface로, Collection 이란 여러 객체의 모임을 말합니다.
+객체의 모임, 즉 Collection은 객체를  더하거나, 빼거나 , 제외하는 등의 객체단위의 기본적인 연산을 지원합니다.
+예시로, Collection의 하위 계층인 List 또한 객체 단위의 추가 , 삭제 등의 연산을 지원합니다.    
+
+Java에서 Interface란 하위 class로 생성한 객체들이 사용 할 수 있는 method를 기술해 놓은 것입니다. 
+때문에 Collection을 구현한 하위 class들은 해당 Method를 구현해야하며, 객체들의 관계에 있어, 느슨한 결합도를 만드는데 중요한 역할을 합니다.
+예시로, Collection type을 인자로 설정해 둘 경우, 하위 type인 List , Set등의 객체도 값으로 넘겨 받을 수 있습니다. 
 
 
-Collection 이란, 여러 객체의 그룹으로, Collection Interface는 Collection 계층의 **root interface** 입니다.      
-하위 Interface로 BeanContext, BeanContextServices, BlockingDeque<E>, BlockingQueue<E>, Deque<E>, List<E>.... 등 여러 Interface가 존재합니다.            
-일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, **Set , List** 같이 서브인터페이스로의 구현을 제공합니다.   
-(+) Multisets은 직접적으로 인터페이스를 구현해야합니다.    
+###### 생성자     
 
-Collection을 구현하는 클래스들은  default 생성자와 Collection Type의 단일 인자를 받는 2개의 생성자를 구현합니다.  이 두가지 생성자가 강요되는 것은 아니지만 모든 Java Platform Library의 Colletion Interface는 이를 준수하고 있습니다.
+일반적으로 JDK에서는 Collection을 직접적으로 구현하지않고, Set , List 같이 서브인터페이스로의 구현을 제공합니다. 
+Collection을 구현하는 클래스들은  default 생성자와 Collection Type의 단일 인자를 받는 2개의 생성자를 갖는데, 강요되는 것은 아니지만 모든 Java Platform Library의 Colletion Interface는 이를 준수하고 있습니다.
 인자를 받는 경우 collection을 복제 할 수 있어 원하는 타입의 동등한 collection을 생성 할 수 있습니다.   
+
 ArrayList의 생성자는 다음과 같습니다.    
 
 
@@ -51,43 +64,27 @@ ArrayList의 생성자는 다음과 같습니다.
         }
     }   
 
-ArrayList는 3가지의 생성자를 갖고 있는데, 그 중 2가지의 생성자는 위에서 말씀드린 생성자 입니다.   
-만약 해당 기능을 지원하지 않는 경우 UnsupportedOperationException을 던진다고 합니다.    
-몇몇 collection 인터페이스는 인자에 대한 제한을 갖고있는데, null 인자를 금지한다거나, 인자의 속성값을 제한합니다.  
-만약 자격이 없는 인자를 추가하려고 시도한다면, exception을 던집니다.        
-
-(+) 일반적으로 nullpointerException(null 값 문제) 이나 ClassCastException(캐스팅 문제)을 던집니다.  
 
 
+###### Method  
 
-## Method  
-
-   
-> Java 8에 추가된 default method는 제외하고 정리해 보았습니다.      
+Java 8에 추가된 default method는 제외하고 정리해 보았습니다.      
     
-+ boolean add(E e)     
+boolean add(E e)     
 Collection은 제네릭을 이용하여 선언됩니다. ( ex - List<Integer> list )     
-해당 타입의 변수를 넘겨 받아 Collection에 추가하는 Method 입니다. ( ex - list.add(5) )     
+해당 타입의 변수를 넘겨 받아 Collection에 추가하는 Method 입니다. ( ex - list.add(5) )       
+
+의미 그대로 element를 삽입하는 Method 입니다.   
    
-> 의미 그대로 element를 삽입하는 Method 입니다.   
-   
-+ boolean addAll(Collection<? extends E> c)      
-> method를 정리하기 전에 (Collection<? extends E> c) 부터 정리하겠습니다.    
-    
-추후 정리할 내용인 제네릭과 관련있는 부분입니다 ( ?를 **와일드카드 타입**이라 부릅니다. ).     
-class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 상속 받은 타입을 말합니다.     
+boolean addAll(Collection<? extends E> c)   
+add와는 다른 인자를 받은걸 볼 수 있는데, Collection<? extends E> c은 제네릭을 사용한 것입니다.
+<? extends E>부분을 설명하자면, class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 상속 받은 타입을 말합니다.     
 즉 E 의 하위타입 또는 E 타입의 인자를 받겠다는 뜻입니다.      
 만약 <? extends List> 로 쓰인다면 List 의 하위 클래스인 ArrayList , Linked List 등의 타입이 인자로 올 수 있습니다.     
-다만, 상위 클래스에서 정의된 메소드만 사용 할 수 있습니다.     
-하위 클래스에서만 정의된 메소드를 사용시 에러를 낸다고합니다.    
+다만, 상위 클래스에서 정의된 메소드만 사용 할 수 있고, 하위 클래스에서 정의된 메소드를 사용시 에러를 낸다고합니다.    
    
 (예시)   
-     
 
-
-    import java.util.ArrayList;
-    import java.util.Collection;
-    import java.util.List;
 
     interface People {
         void eat();
@@ -124,81 +121,71 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
     }   
 
 
-   
-다시 method 설명으로 돌아와서 , addAll method 는  인자로 받은 collection 타입의 element들을 모두 추가하는 메소드 입니다.      
-자세한 내용은 collection을 구현하고 있는 하위 클래스를 분석하며 정리하도록 하겠습니다.   
-
-> 인자로 받은 collection 타입의 element를 해당 collection에 추가하는 method .   
-
-+ void clear()   
+다시 method 설명으로 돌아와서 , addAll method 는 인자로 받은 collection 타입의 element들을 모두 추가하는 메소드 입니다.      
+세부 구현은 하위 interface를 구현하는 class들에서 확인할 수 있습니다.
+ 
+void clear()   
 
 의미 그대로 해당 collection에 있는 모든 인자를 clear 하는 method 입니다.   
 
-> 해당 Collection의 모든 element를 지웁니다.    
+boolean contains(Object o)   
 
-+ boolean contains(Object o)   
+인자로 받은 o 가 collection에 있으면 true를 반환. 없으면 false를 반환합니다.   
 
-인자로 받은 o 가 collection에 있으면 true를 반환. 없으면 false를 반환한다.   
-
-> 해당 elements 가 있는지 확인하는 method .   
-
-+ boolean containAll(Collection<?> c)   
+boolean containAll(Collection<?> c)   
 
 인자로 받은 collection의 element 모두가  해당 collection에 있으면 true를 반환합니다.   
 
-> 인자로 받은 collection의 모든 element가 포함되어있는지 확인하는 method   
-
 + boolean equeals(Object o)   
 + int hashCode()   
-동일성과 동등성을 체크하기위한 method .   
-Object 클래스에서 상속받아 구현하기도 한다.   
-
-> 설명 할 내용이 많기 때문에 추후 이 주제로 정리하도록 하겠습니다.   
+동일성과 동등성을 체크하기위한 method입니다.       
 
 
-+ boolean isEmpty()   
+boolean isEmpty()   
 
-> Collection이 비어있으면 true를 반환. 비어있지 않으면 false를 반환.   
+Collection이 비어있으면 true를 반환. 비어있지 않으면 false를 반환합니다.
 
-+ Iterator<E> iterator()   
+Iterator<E> iterator()   
 
-> Iterator 를 구현하기 위한 method . 이또한 추후 정리.
+Iterator 를 구현하기 위한 method입니다.   
 
-+ boolean remove(Object o)
+boolean remove(Object o)
 
-> 값을 넘겨받은 object element를 삭제하는 method
+값을 넘겨받은 object element를 삭제하는 method입니다.   
 
-+ boolean removeAll(Collection<?> c)   
+boolean removeAll(Collection<?> c)   
  
-> 넘겨받은 collection의 element들을 삭제하는 method.
+넘겨받은 collection의 element들을 삭제하는 method입니다.
    
-+ boolean retainAll(Collection<?> c)    
+boolean retainAll(Collection<?> c)    
 
-> 넘겨받은 collection의 element들을 유지하는 method .
+넘겨받은 collection의 element들을 유지하는 method입니다.
  
-ArrayList를 찾아보며 정리하던 중 , removeAll 과 retainAll의 동작 방식이 같다는 걸 알게 되었습니다. 찾아보니 bug 라고 하더군요 ... (제가 갖고있는 버전에 문제가 있던것 같습니다.)
+ArrayList를 찾아보며 정리하던 중에 removeAll 과 retainAll의 소스부분이 같아, 찾아보니 버전문제(버그)라고 합니다. 
+제가 갖고있는 버전에 문제가 있던것 같습니다.
       
-[자세한 설명](http://stackoverflow.com/questions/8372576/java-commons-collections-removeall)을 참고해 주세요.
+[자세한 설명](http://stackoverflow.com/questions/8372576/java-commons-collections-removeall)을 참고해 주세요.   
  
-+ int size()
+int size()    
    
-> collection의 size를 반환하는 메소드 입니다 . (가장 많이 접했던 method가 아닐까합니다.)
+collection의 size를 반환하는 메소드 입니다 . (가장 많이 접했던 method가 아닐까합니다.)
 
-+ Object[] toArray()  
+Object[] toArray()  
 
-> collection의 element들을 object 타입의 array로 변환하여 반환하는 method 입니다.
+collection의 element들을 object 타입의 array로 변환하여 반환하는 method 입니다.
 
-+ <T> T[] toArray()
+<T> T[] toArray()
 
-> 이전의 toArray와 같은 방식으로 array를 반환하지만, 제네릭을 사용하여 타입을 사용자가 정할 수 있다는 차이가 있습니다.   
-
-
+이전의 toArray와 같은 방식으로 array를 반환하지만, 제네릭을 사용하여 타입을 사용자가 정할 수 있다는 차이가 있습니다.   
 
 
-추후 Collection을 상속받은 List를 정리하면서 오늘 설명하지 못한 부분들을 정리하도록 하겠습니다.    
 
-감사합니다. 
+Collection의 정의와 Method부분을 간단히 정리했습니다.  
+
+Collection은 한마디로 정의하면 객체들의 그룹이라고 말할 수 있겠네요. 
+Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을 작성하였습니다.  
+
 
 ~ 2016 - 10 -31
 
-(2017-01-23 ~ 수정중입니다.)
+(2017-01-25  수정완료)
