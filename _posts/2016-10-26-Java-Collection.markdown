@@ -184,9 +184,8 @@ collection의 element들을 object 타입의 array로 변환하여 반환하는 
 Collection의 정의와 Method부분을 간단히 정리했습니다.  
 
 Collection은 한마디로 정의하면 객체들의 그룹이라고 말할 수 있겠네요.    
-Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을 작성하였습니다.         
-
-    
-~ 2016 - 10 -31         
+Collection의 Method 부분 보다, 설계의도(?)를 이해하기위해 글을 작성하였습니다.                 
+   
+   
      
 (2017-01-25  수정완료)    
