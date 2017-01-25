@@ -9,30 +9,21 @@ image: https://unsplash.it/2000/1200?image=1003
 image-sm: https://unsplash.it/500/300?image=1003
 ---
 
-## Collection 
 
-`본 글은 Java Collection Interface를 정리한 글입니다.`  
-
-세부 내용은 [Java doc](https://docs.oracle.com/javase/8/docs/api/)에서 확인하세요.  
-
-+ Collection 이란  
-여러 객체의 그룹으로, Collection 인터페이스는 Collection 계층의 **root interface** 입니다.    
-(List / Queue Interface 등의 상위 Interface 입니다.  )
+Java의 Collection Interface에 대한 글입니다.        
+[Java doc](https://docs.oracle.com/javase/8/docs/api/)의 내용을 정리했습니다.     
 
 
-`collection의 subInterface`   
+Collection 이란, 여러 객체의 그룹으로, Collection Interface는 Collection 계층의 **root interface** 입니다.      
+하위 Interface로 BeanContext, BeanContextServices, BlockingDeque<E>, BlockingQueue<E>, Deque<E>, List<E>.... 등 여러 Interface가 존재합니다.            
+일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, **Set , List** 같이 서브인터페이스로의 구현을 제공합니다.   
+(+) Multisets은 직접적으로 인터페이스를 구현해야합니다.    
 
-> BeanContext, BeanContextServices, BlockingDeque<E>, BlockingQueue<E>, Deque<E>, List<E>....   
+Collection을 구현하는 클래스들은  default 생성자와 Collection Type의 단일 인자를 받는 2개의 생성자를 구현합니다.  이 두가지 생성자가 강요되는 것은 아니지만 모든 Java Platform Library의 Colletion Interface는 이를 준수하고 있습니다.
+인자를 받는 경우 collection을 복제 할 수 있어 원하는 타입의 동등한 collection을 생성 할 수 있습니다.   
+ArrayList의 생성자는 다음과 같습니다.    
 
-일반적으로 JDK에서는 Collection 인터페이스를 직접적으로 구현하는 것을 제공하지 않고, **Set , List** 같이 서브인터페이스로 구현을 제공합니다.  
 
-> (+) Multisets은 직접적으로 인터페이스를 구현해야합니다.  
-
-+ Collection을 구현하는서브인터페이스는 2개의 생성자를 구현해야 합니다.
-
- default 생성자와 Collection Type의 단일 인자를 받는 생성자 입니다. 인자를 받는 경우 collection을 복제 할 수 있어 원하는 타입의 동등한 collection을 생성 할 수 있습니다. 이 두가지 생성자가 강요되는 것은 아니지만 모든 Java Platform Library의 Colletion Interface는 이를 준수하고 있습니다.
-  
-``` 
     public ArrayList(int initialCapacity) {
         if (initialCapacity > 0) {
             this.elementData = new Object[initialCapacity];
@@ -59,22 +50,14 @@ image-sm: https://unsplash.it/500/300?image=1003
             this.elementData = EMPTY_ELEMENTDATA;
         }
     }   
-```
 
->Collection의 서브인터페이스인 List를 구현한 ArrayList입니다.   
->ArrayList는 3가지의 생성자를 갖고 있는데, 그 중 2가지의 생성자는 위에서 말씀드린 생성자 입니다.   
->2번째 생성자는 collection type의 인자를 받아 복제하여 사용하는 코드입니다.   
+ArrayList는 3가지의 생성자를 갖고 있는데, 그 중 2가지의 생성자는 위에서 말씀드린 생성자 입니다.   
+만약 해당 기능을 지원하지 않는 경우 UnsupportedOperationException을 던진다고 합니다.    
+몇몇 collection 인터페이스는 인자에 대한 제한을 갖고있는데, null 인자를 금지한다거나, 인자의 속성값을 제한합니다.  
+만약 자격이 없는 인자를 추가하려고 시도한다면, exception을 던집니다.        
 
-+ 만약 collection이 작동을 지원하지 않는다면 UnsupportedOperationException을 던집니다.    
+(+) 일반적으로 nullpointerException(null 값 문제) 이나 ClassCastException(캐스팅 문제)을 던집니다.  
 
->기능을 지원하지 않는 경우 발생하는 Exception    
-
-+ 몇몇 collection 인터페이스는 인자에 대한 제한을 갖고 있습니다.   
-null 인자를 금지한다거나, 그들의 속성값의 제한을 합니다.  
-만약 자격이 없는 인자를 추가하려고 시도한다면 확인되지 않은 exception을 던질것입니다.
-
-> 일반적으로 nullpointerException(null 값 문제) 이나 ClassCastException(캐스팅 문제)을 던집니다.  
-> 위 생성자를 보시면 collection의 인자가 Null일 경우 nullpointerException을 던진다고 합니다.
 
 
 ## Method  
@@ -100,7 +83,7 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
    
 (예시)   
      
-```
+
 
     import java.util.ArrayList;
     import java.util.Collection;
@@ -112,27 +95,25 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
     }
 
     class Student implements  People {
-    
-        @Override
-        public void eat() {
-            System.out.println("nice food  !");
-        }
-    
-        @Override
-        public void sleep() {
-            System.out.println("zzzzzz !");
-        }
-        public void study(){
-            System.out.println("studying !");
-        }
+            @Override
+            public void eat() {
+                System.out.println("nice food  !");
+            }
+            
+            @Override
+            public void sleep() {
+                System.out.println("zzzzzz !");
+            }
+            
+            public void study(){
+                System.out.println("studying !");
+            }
     }
-
 
     public class Main {
         public static void act(List<? extends People> people){
             people.get(0).eat();
             //people.get(0).study(); 이부분은 컴파일 에러가 나옵니다.
-    
         }
         public static void main(String args[]){
             List<Student> list = new ArrayList();
@@ -142,7 +123,7 @@ class 상속받을때 쓰는 extends 의미 그대로,  <? extends E> 는 E를 �
         }
     }   
 
-```
+
    
 다시 method 설명으로 돌아와서 , addAll method 는  인자로 받은 collection 타입의 element들을 모두 추가하는 메소드 입니다.      
 자세한 내용은 collection을 구현하고 있는 하위 클래스를 분석하며 정리하도록 하겠습니다.   
@@ -220,3 +201,4 @@ ArrayList를 찾아보며 정리하던 중 , removeAll 과 retainAll의 동작 �
 
 ~ 2016 - 10 -31
 
+(2017-01-23 ~ 수정중입니다.)
