@@ -1,8 +1,8 @@
 # Site Info
-title: JCWBlog
-tagline: 'Dev_Blog JCW'
-description: 'Dev_Blog'
-baseurl: ""
+title: JCW Dev blog 
+tagline: 'A Jekyll theme based on Lanyon'
+description: 한달에 한번 글쓰는걸 목표로 하고있습니다 ... '
+baseurl: "/lanyon"
 url: http://jangchulwoon.github.io
 logo: '/public/logo.png'
 
@@ -25,15 +25,15 @@ version: 1.0.0
 # About/contact
 author:
   name: Jangchulwoon
-  description: Study dev .. 
+  description: 대학교에서 컴퓨터를 배우고 있습니다. 
   gravatar: 
   contact:
     linkedin:  
-    github:    https://github.com/Jangchulwoon
+    github:    https://github.com/jangchulwoon
     # facebook:  <hide>
     twitter:   
     weibo:     
-    email:     
+    email:     lusiue@gmail.com
 
 # Navigation (2nd level links supported)
 nav:
@@ -46,7 +46,7 @@ nav:
   About:          
     - '/about/'
   Github Project: 
-    - 
+    - 'http://codinfox.github.io/'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
@@ -59,5 +59,5 @@ hero:
 # Puglins
 mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+disqus_short_name: 'JCW' # leave blank if you don't want disqus
 
