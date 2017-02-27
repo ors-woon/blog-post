@@ -1,9 +1,9 @@
 # Site Info
-title: JCW Dev blog 
+title: Codinfox Lanyon
 tagline: 'A Jekyll theme based on Lanyon'
-description: 한달에 한번 글쓰는걸 목표로 하고있습니다 ... '
+description: 'A Jekyll theme adapted from <a href="http://lanyon.getpoole.com/" target="_blank">Lanyon</a>. Made by <a href="http://codinfox.github.io" target="_blank">@codinfox</a>.'
 baseurl: "/lanyon"
-url: http://jangchulwoon.github.io
+url: http://codinfox.github.io
 logo: '/public/logo.png'
 
 # Site configurations
@@ -28,8 +28,8 @@ author:
   description: A passionate <strong>developer and researcher</strong>, learning to be a giant.
   gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
   contact:
-    linkedin: 
-    github:    https://github.com/jangchulwoon
+    linkedin:  https://www.linkedin.com/in/lizhihao
+    github:    https://github.com/codinfox
     # facebook:  <hide>
     twitter:   https://twitter.com/Li_Zhihao
     weibo:     http://weibo.com/41173780
