@@ -5,11 +5,12 @@ tags: 초난감 DAO spring 객체지향
 categories: spring
 ---
 
-토비의 spring 을 공부하며 정리했습니다.
+토비의 spring 을 공부하며 정리했습니다.   
+혼자 정리한 거라 반말로 되어있네요 
 
 ## 초난감 DAO   
 
-제가 학교에서 배우고 사용한 DAO의 형태는 다음과 같다.  
+내가 학교에서 배우고 사용한 DAO의 형태는 다음과 같다.  
 
 	// add query
     public void add(User user) throws ClassNotFoundException, SQLException {
