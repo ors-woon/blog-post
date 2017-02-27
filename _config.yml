@@ -1,9 +1,9 @@
 # Site Info
-title: Codinfox Lanyon
-tagline: 'A Jekyll theme based on Lanyon'
-description: 'A Jekyll theme adapted from <a href="http://lanyon.getpoole.com/" target="_blank">Lanyon</a>. Made by <a href="http://codinfox.github.io" target="_blank">@codinfox</a>.'
+title: JCW Dev_Blog 
+tagline: 'Github blog'
+description: '개발 공부를 하며 글을 정리하고 싶습니다 .'
 baseurl: ""
-url: http://codinfox.github.io
+url: http://jangchulwoon.github.io
 logo: '/public/logo.png'
 
 # Site configurations
@@ -24,16 +24,16 @@ version: 1.0.0
 
 # About/contact
 author:
-  name: Codinfox
-  description: A passionate <strong>developer and researcher</strong>, learning to be a giant.
-  gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
+  name: Jangchulwoon
+  description: 대학교에서 컴퓨터를 공부하고 있습니다. 
+  gravatar: 
   contact:
-    linkedin:  https://www.linkedin.com/in/lizhihao
-    github:    https://github.com/codinfox
+    linkedin:  
+    github:    https://github.com/jangchulwoon
     # facebook:  <hide>
-    twitter:   https://twitter.com/Li_Zhihao
-    weibo:     http://weibo.com/41173780
-    email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
+    twitter:   
+    weibo:     
+    email:     lusiue@gmail.com
 
 # Navigation (2nd level links supported)
 nav:
@@ -59,5 +59,5 @@ hero:
 # Puglins
 mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+disqus_short_name: 'JCW' # leave blank if you don't want disqus
 
