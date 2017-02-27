@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Spring - 초난감 DAO
-tags: 초난감 DAO , spring , 객체지향
+tags: 초난감 DAO spring 객체지향
 ---
 
 토비의 spring 을 공부하며 정리했습니다.
