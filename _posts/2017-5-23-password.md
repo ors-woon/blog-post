@@ -6,7 +6,7 @@ categories: 프로젝트
 ---    
 
 
-Bookclips 프로젝트를 진행하면서 암호화에 대해 생각하게 되었습니다.      
+[Bookclips]('www.bookclips.xyz') 프로젝트를 진행하면서 암호화에 대해 생각하게 되었습니다.      
 암호화의 내용과 개인적인 생각을 정리해 보겠습니다. 
 
 [D2 안전한 패스워드 저장]('http://d2.naver.com/helloworld/318732')을 참조하시면 이해가 빠를 것 같습니다.     
