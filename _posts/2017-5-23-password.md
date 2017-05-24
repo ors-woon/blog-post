@@ -6,15 +6,15 @@ categories: 프로젝트 bookclips
 ---    
 
 
-[Bookclips]('/www.bookclips.xyz') 프로젝트를 진행하면서 암호화에 대해 생각하게 되었습니다.      
+[Bookclips](www.bookclips.xyz) 프로젝트를 진행하면서 암호화에 대해 생각하게 되었습니다.      
 암호화의 내용과 개인적인 생각을 정리해 보겠습니다. 
 
-[D2 안전한 패스워드 저장]('/http://d2.naver.com/helloworld/318732')을 참조하시면 이해가 빠를 것 같습니다.     
+[D2 안전한 패스워드 저장](/http://d2.naver.com/helloworld/318732)을 참조하시면 이해가 빠를 것 같습니다.     
 
 #### 개요      
 
 지금까지 개인 프로젝트를 하면서 password를 암호화하지 않고 DB에 저장해뒀다.      
- 문제를 제시하는 사람도 없었고 암호화에 대한 개념을 모르고있었기 때문인 것 같다. 그러던 중, [D2 안전한 패스워드 저장]('/http://d2.naver.com/helloworld/318732')의 포스팅을 보고 한번 적용해 보고 싶다는 생각에 암호화를 공부하고 적용해 봤다.      
+ 문제를 제시하는 사람도 없었고 암호화에 대한 개념을 모르고있었기 때문인 것 같다. 그러던 중, [D2 안전한 패스워드 저장](http://d2.naver.com/helloworld/318732)의 포스팅을 보고 한번 적용해 보고 싶다는 생각에 암호화를 공부하고 적용해 봤다.      
 
 > D2에서는 단순Text를 저장하는것을 '범죄를 저지르는 것이나 다름없다.'라고 표현한다.     
 
@@ -29,7 +29,7 @@ categories: 프로젝트 bookclips
 Bookclips 프로젝트에서 memo 기능을 JAVA 에서 제공하는 Cipher class를 사용하여 구현했다.(대칭키를 사용)    
 특별히 이유가 있어서 memo에 적용한것은 아니고 한번 대칭키를 사용해보고 싶어서 적용해봤다.     
      
-> Https가 비대칭키를 사용하는것으로 알고있다.  ::  [생활코딩 HTTPS]('/https://opentutorials.org/course/228/4894')를 참조.    
+> Https가 비대칭키를 사용하는것으로 알고있다.  ::  [생활코딩 HTTPS](https://opentutorials.org/course/228/4894)를 참조.    
 
 #### Hash 함수의 문제점과 해결방안.   
 

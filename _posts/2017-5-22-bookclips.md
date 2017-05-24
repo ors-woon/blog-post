@@ -35,8 +35,8 @@ spring을 공부하고있기에 spring을 사용해서 정리해볼까 생각했
 
 목차     
 
-[01-프로젝트-암호화관련]('/프로젝트/bookclips/2017/05/23/password/')       
-[02-프로젝트-JUnit 관련]('/프로젝트/bookclips/2017/05/25/JUnit/')     
+[01-프로젝트-암호화관련](/프로젝트/bookclips/2017/05/23/password/)       
+[02-프로젝트-JUnit 관련](/프로젝트/bookclips/2017/05/25/JUnit/)     
 
 
 2017 05 25     
