@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 프로젝트-암호화관련 
+title: 01-프로젝트-암호화관련 
 tags: password 암호화 bookclips
-categories: 프로젝트
+categories: 프로젝트 bookclips
 ---    
 
 
