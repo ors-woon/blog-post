@@ -9,7 +9,7 @@ categories: Java
 ##Comparable 과 Comparator Interface 
 
 Java언어에서 정렬을 돕기위해 제공되는 Comparable , Comparator Interface에 대해 정리해보겠습니다.     
-자세한 내용은 [Java doc]('https://docs.oracle.com/javase/8/docs/api/')을 참고해주세요.   
+자세한 내용은 [Java doc](https://docs.oracle.com/javase/8/docs/api/)을 참고해주세요.   
 
 #Comparable    
 
@@ -290,5 +290,5 @@ comparator
 
 
 참고자료   
-[Java doc]('https://docs.oracle.com/javase/8/docs/api/')   
-[Java object sorting example ]('https://www.mkyong.com/java/java-object-sorting-example-comparable-and-comparator/')
+[Java doc](https://docs.oracle.com/javase/8/docs/api/)   
+[Java object sorting example ](https://www.mkyong.com/java/java-object-sorting-example-comparable-and-comparator/)

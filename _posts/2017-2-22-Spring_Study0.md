@@ -70,7 +70,7 @@ Driver을 가져오고 , 서버와 연결하고 query 실행 후,  닫기 .
 아주 틀린 말은 아닌데,  
 try catch를 사용하지 않고 throws를 사용하다면, 쿼리 실행 중 예외가 발생할 때, 리소스를 닫지 않고 나가게 되고, 그 만큼의 리소스 낭비가 발생한다.   
 하지만 지금 당장 중요한 내용은 아니다.       
-궁금하면 [참조]('http://stackoverflow.com/questions/3203297/throws-or-trycatch')를 확인하자.    
+궁금하면 [참조](http://stackoverflow.com/questions/3203297/throws-or-trycatch)를 확인하자.    
 
 두 함수를 비교해보면 Driver을 가져오고, 서버와 연결하는 부분이 중복되어 있다.  
 지금 당장은 문제가 될 건 아니지만, 만약 위와같은 DAO가 100개 이상 있고, DB가 mysql이 아니라 Oracle로 변경된다면 ?    
