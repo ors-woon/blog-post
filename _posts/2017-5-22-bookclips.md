@@ -41,8 +41,9 @@ spring을 공부하고있기에 spring을 사용해서 정리해볼까 생각했
 
 2017 05 25     
 lusiue@gmail.com    
-www.bookclips.xyz 을 통해 확인 할 수 있습니다.     
-계속 작성중에 있습니다 .
+[여기](https://www.bookclips.xyz)를 통해 확인 할 수 있습니다.     
+
+제가 만든 코드가 버려지지 않기위해 공부하고있습니다. 
 
 > 예전에는 ProjectNotFound라는 이름의 프로젝트였다면 Bookclips 라는 이름의 프로젝트로 진행중에 있습니다.     
 
