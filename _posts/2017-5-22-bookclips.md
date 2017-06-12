@@ -38,7 +38,7 @@ spring을 공부하고있기에 spring을 사용해서 정리해볼까 생각했
 [01-프로젝트-암호화관련](/프로젝트/bookclips/2017/05/23/password/)       
 [02-프로젝트-JUnit 관련](/프로젝트/bookclips/2017/05/25/JUnit/)    
 [03-MVC와JSP의 이해](/프로젝트/bookclips/2017/05/28/MVC/)    
-
+[04-CallbackMethod](/프로젝트/bookclips/2017/06/12/callback/) 
 
 2017 05 25     
 lusiue@gmail.com    
