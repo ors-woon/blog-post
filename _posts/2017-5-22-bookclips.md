@@ -30,7 +30,7 @@ spring을 공부하고있기에 spring을 사용해서 정리해볼까 생각했
 
  
 
-
++ 06 25 jsp 프로젝트를 spring으로 변환하고 있습니다.
 
 
 목차     
@@ -39,10 +39,10 @@ spring을 공부하고있기에 spring을 사용해서 정리해볼까 생각했
 [02-프로젝트-JUnit 관련](/프로젝트/bookclips/2017/05/25/JUnit/)    
 [03-MVC와JSP의 이해](/프로젝트/bookclips/2017/05/28/MVC/)    
 [04-CallbackMethod](/프로젝트/bookclips/2017/06/12/callback/) 
-
+[05-Log4j와System.out.println()](/프로젝트/bookclips/2017/06/25/Log4jandSout/) 
 2017 05 25     
 lusiue@gmail.com    
-[여기](https://www.bookclips.xyz)를 통해 확인 할 수 있습니다.     
+[여기](http://www.bookclips.xyz)를 통해 확인 할 수 있습니다.     
 
 제가 만든 코드가 버려지지 않기위해 공부하고있습니다. 
 
