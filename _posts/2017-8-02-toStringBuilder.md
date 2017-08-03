@@ -1,8 +1,8 @@
 ---
 layout: post
 title: toStringBuilder에 대하여
-tags: bookclips Java  toStringBuilder
-categories: 프로젝트 bookclips
+tags:  사용법
+categories:  bookclips
 ---    
 
          
