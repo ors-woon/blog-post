@@ -6,7 +6,7 @@ categories:  Js
 ---       
 
 
-[Promise에 대하여](/프로젝트/js/2017/08/03/Promise/)라는 글을 작성하면서, 큰 삽질을 했습니다.     
+[Promise에 대하여](/js/2017/08/03/Promise/)라는 글을 작성하면서, 큰 삽질을 했습니다.     
 
 	var check1 = function(data){
 		return  new Promise(function(resolve,reject){	
