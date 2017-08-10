@@ -11,10 +11,13 @@ categories:  WebServer제작
 
 단순히 개발만 진행하기에는 조금 아쉬울 것같아서 한 단계씩 글을 작성해 보겠습니다.     
 
+	
+	BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));      
 
-> 오늘은 Java I/O와 연관깊은 Decorator 패턴을 정리하겠습니다.   
+> Server를 만들면서 위같은 I/O 관련 코드를 자주 사용했습니다.    
+> 때문에 I/O와 관련된 Decorator패턴을 정리해보려 합니다.    
 
-
+해당 글은 Decorator의 개념을 이해하기 위한 포스팅으로, 간략하게 정리를 했습니다.   
 
 #### Decorator 패턴       
 
@@ -27,11 +30,19 @@ Decorator pattern의 개념은 다음과 같습니다.
 
 한마디로 요약하자면, 다음과 같을것 같습니다.    
 
->  " 객체에 책임을 덧붙이는 패턴 "    
+>  " 객체에 책임을 덧붙이는 패턴 "      
 
-Decorator 패턴을 적용한 간단한 예제를 만들겠습니다. 지금 카페에서 커피를 마시고있으니 커피를 이용한 예제를 만들어보죠. 구조는 다음과 같습니다.    
+#### Coffee Decorator 
 
-<img src = "./Decorator.png">      
+다음은 Decorator 패턴을 적용한 간단한 예제입니다.       
+
+> 지금 카페에서 커피를 마시고있으니 커피를 이용한 예제를 만들어보죠.     
+
+구조는 다음과 같습니다.        
+
+<img src = "/public/img/Decorator.png">      
+
+작성하려는 코드는 생성자를 통해 객체를 넘겨받고, 기능을 확장(?)하는 동작을 하는 코드입니다.     
 
 > Beverage가 최상위 Interface인 구조입니다.   
 
@@ -52,7 +63,6 @@ Decorator 패턴을 적용한 간단한 예제를 만들겠습니다. 지금 카
 	    public abstract String getName();
 	}  
 
-> 다음과 같이 코드를 작성한 이유는 Beverage 객체에 동적으로 String을 추가하기 위함입니다.   
 
 	// Coffee.java
 	public class Coffee implements Beverage{
@@ -100,13 +110,12 @@ Decorator 패턴을 적용한 간단한 예제를 만들겠습니다. 지금 카
 	    }
 	}
 
-
+> Temperature과 Syrup의 getName()에서 객체의 책임이 덧붙여집니다.   
   
-간단히 설명하자면, Coffee는 Beverage를 구현한 클래스로 객체 생성시 name을 초기화 합니다. 그 후, getName이라는 Method로 초기화한 name을 호출할 수 있습니다.    
+1. Coffee는 Beverage를 구현한 클래스로 객체 생성시 name을 초기화 합니다. 그 후, getName이라는 Method로 초기화한 name을 호출할 수 있습니다.    
+2. Temperature와 Syrup은 Beverage type의 객체와 type이라는 변수를 받아 객체를 초기화합니다.     
+3. 그후, Beverage의 name과 type을 더해 String을 반환하는 getName()이라는 Method를 갖고 있습니다.  이 과정에서 **객체의 책임**이 덧붙여진다고 볼 수 있습니다.   
 
-Temperature와 Syrup은 Beverage type의 객체와 type이라는 변수를 받아 객체를 초기화하고, Beverage의 name과 type을 더해 String을 반환하는 getName()이라는 Method를 갖고 있습니다.      
-
-위같이 코드를 작성한 이유는 Beverage 객체를 생성 후, 인자로 넘겨주면서 String을 추가하기 위함입니다.    
 
 위 코드를 실행시키는 Main은 다음과 같습니다.    
 
@@ -119,40 +128,63 @@ Temperature와 Syrup은 Beverage type의 객체와 type이라는 변수를 받�
 
 > 결과 >  아이스 코코넛 아메리카노     
 
-초기에 beverage 객체를 생성하고, 그 객체를 AdditionalOption에 계속 넘기면서 문자열이 추가되는 동작을 하게됩니다. 위 코드를 한줄로 줄이면 이렇게 되죠.
+위 코드를 한줄로 줄이면 이렇게 되죠.
 
 	AdditionalOption additionalOption = new Temperature(new Syrup(new Coffee("아메리카노"),"코코넛 "), "아이스 ");
 
-Decorator패턴은 객체의 책임/기능을 확장시킬수 있다는 장점이 있지만, 위같이 사용될 경우 가독성이 떨어진다는 단점이 존재합니다. 코드를 설계한 저도 내일 당장 위 코드를 바로 이해할 순 없을겁니다. 또 요구사항이 늘어날 수록 잡다한 클래스들 또한 함께 증가한다는 단점이 존재합니다.    
+보신바와 같이 Decorator패턴을 사용하면 객체의 책임 및 기능을 확장할 수 있다는 장점이 있습니다. 다만 가독성이 떨어진다는 단점이 존재합니다. 
 
-> 그럼에도 동적으로 책임을 확장시킬 수 있다는 점이 큰 장점으로 다가옵니다.    
+> 개인적으로 이해하기도 어렵구요 ..     
 
-또하나의 대표적인 예로 Java I/O를 예시로 들 수 있습니다.  
+또한, 요구사항이 늘어날수록 잡다한 Class들도 증가하게 되겠죠. 여러관점에서 사용하기는 어려운 패턴같습니다.     
+
+> 그럼에도 동적으로 책임을 확장시킬 수 있다는 점이 큰 매력으로 다가옵니다.    
+
+
+[ +덧 ] 
+
+Decorator 패턴을 공부하면서, 연관된 Class 들이 모두 공통된 Interface 또는 class를 상속 받아야 한다고 생각했습니다. 그래서 위 예제가 Beverage Interface를 모두 상속 받고 있죠.      
+하지만  제가 알던 것과는 달리, Decorator 패턴에서 필수적으로 공통된 Class/Interface를 구현할 필요는 없습니다.       
+
+> Decorator 패턴에서 공통된 Class/Interface를 구현해야할 의무는 없습니다.     
+      
+
+#### Java의 I/O 구조    
+
+	BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));     
+
+
+위 코드는 소켓의 inputStream을 가져와 InputStreamReader와 BufferedReader로 기능을 확장시키는 코드입니다.    
+
+> 물론 Decorator 패턴입니다.   
+
+위 코드들의 생성자 및 함수들의 정의부는 다음과 같습니다.   
+
+	public InputStream getInputStream() throws IOException  // Socket의 함수
+	public InputStreamReader(InputStream in) // 생성자
+	public BufferedReader(Reader in) // 생성자     
+
+
+위 코드만으론 각 객체들이 어떤 관계에 있는지 추측하기 어렵습니다. 코드를 추척하면서 관계를 알아보죠.        
+
+> InputStream과 InputStreamReader/BufferedReader의 상속 구조는 다음과 같습니다.     
+   
+<br>
+
+<img src ="/public/img/inputReaderStructure.png"/>
+
+<br>
+
+1. BufferedReader 와 InputStreamReader는 추상 클래스인 Reader 를 상속받습니다.    
+2. Reader는 Closeable interface를 구현합니다. 
+3. InputStream 또한 Closeable interface를 구현합니다.         
+
+(+) BufferedReader 와 InputStreamReader의 생성자는 Default 생성자를 갖고 있지않고, 필수적으로 인자를 받아 진행합니다.
+
+(추가적으로 코드를 더 작성해볼까 ? )  
 
 
 
-	 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));      
-
-위 코드는 소켓의 inputStream을 가져와 InputStreamReader와 BufferedReader로 기능을 확장시키는 코드입니다. 간단하게 코드를 까(?)보겠습니다.      
-
-	// clientSocket.getInputStream()
-	public InputStream getInputStream() throws IOException; 
-    
-	// InputStreamReader의 생성자
-	public InputStreamReader(InputStream in);      
-
-	// BufferedReader의 생성자.    
-	public BufferedReader(Reader in);     
-
-간략하게 보자면, getInputStream()은 InputStream type을 반환하고, InputStreamReader()함수가 그걸 받아 객체를 생성,  또 다시 BufferedReader가 그걸 받아 최종적으로 객체를 생성하는 구조입니다.    
-
-추가적으로 BufferedReader 와 InputStreamReader는 추상 클래스인 Reader 를 상속받고, Reader는 Closeable interface를 구현합니다. InputStream 또한 Closeable interface를 구현합니다.
-
-	new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));        
-
-결국 위 3개의 객체 모두 Closeable interface를 구현한 객체들로, 이를 이용하여, decorator 패턴을 사용했습니다.  
-
-    
 
 #### 마치며    
 
@@ -161,9 +193,10 @@ Decorator 패턴은 사용하기 위해 정리했다기 보다, I/O 부분을 �
 > API 설계나 규모있는 프로젝트를 진행하다보면 적용해 볼 수 있겠죠 ?    
 
 lusiue@gmail.com     
-08-08~ 작성중     
+08-08
+
+
 
 
 
 [자바 디자인 패턴 8 - Decorator](http://egloos.zum.com/iilii/v/3850836)       
-  
