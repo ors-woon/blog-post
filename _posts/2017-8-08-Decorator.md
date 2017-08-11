@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decorator 패턴에 대하여
-tags:  Java WebServer
+tags:  Java WebServer I/O
 categories:  WebServer제작
 ---       
 
@@ -32,6 +32,7 @@ Decorator pattern의 개념은 다음과 같습니다.
 
 >  " 객체에 책임을 덧붙이는 패턴 "      
 
+
 #### Coffee Decorator 
 
 다음은 Decorator 패턴을 적용한 간단한 예제입니다.       
@@ -42,33 +43,24 @@ Decorator pattern의 개념은 다음과 같습니다.
 
 <img src = "/public/img/Decorator.png">      
 
-작성하려는 코드는 생성자를 통해 객체를 넘겨받고, 기능을 확장(?)하는 동작을 하는 코드입니다.     
+작성하려는 코드는 상품의 이름, 가격을 동적으로(?) 확장하여 출력하는 예제입니다.      
 
-> Beverage가 최상위 Interface인 구조입니다.   
+>  Decorator 패턴을 사용하려다보니, 설계가 올바르진않습니다.    
+>  다소 이상합니다 ..... 
 
+	public interface Product {
+	    String getName();
+	    Integer getPrice();
+	}     
 
-	public interface Beverage {
-    	String getName();
-	}
-
-
-	public abstract class AdditionalOption implements Beverage {
-	    protected Beverage beverage;
-	
-	    public AdditionalOption(Beverage beverage){
-	        this.beverage = beverage;
-	    }
-	
-	    @Override
-	    public abstract String getName();
-	}  
+최상위 Interface인 Product는 getName과 getPrice 이라는 함수를 갖고있습니다.    
+>  subClass들은 이 함수를 재정의할 의무를 갖고 있습니다.      
 
 
-	// Coffee.java
-	public class Coffee implements Beverage{
-	    private String name;
-	
-	    public Coffee(String name) {
+	public abstract class Beverage implements Product{
+    	private String name;
+
+	    public Beverage(String name){
 	        this.name = name;
 	    }
 	
@@ -77,77 +69,220 @@ Decorator pattern의 개념은 다음과 같습니다.
 	        return name;
 	    }
 	}
+ 
+Beverage는 추상클래스로 상품명(name)을 인자로 받아 객체를 생성하는 기능을 합니다.     
+>  그 외의 부가적인 기능은 subClass에게 위임(?)합니다.
 
-	// Syrup.java
-	public class Syrup extends AdditionalOption {
-	    private String type;
+	public abstract class AddtionalOption implements Product {
 	
-	    public Syrup(Beverage beverage,String type) {
-	        super(beverage);
-	        this.type = type;
+	    protected Product product;
+	
+	    public AddtionalOption(Product product) {
+	        this.product = product;
+	    }
+	}        
+
+
+AddtionalOption은 말 그대로 상품에 Option을 추가하는 역할을 합니다. 예제에서는 간단하게 Syrup만 추가하는 구조로 설계했습니다.
+
+> 생성자로 Product 객체를 받아 추후 name 및 price를 추가하는 역할을 합니다.     
+
+ 
+
+	public class Americano extends Beverage {
+	    private int price = 3000;
+	
+	    public Americano(String name){
+	        super(name);
 	    }
 	
 	    @Override
 	    public String getName() {
-	        return type+beverage.getName();
+	        return super.getName()+ "아메리카노";
 	    }
 	
+	    @Override
+	    public Integer getPrice() {
+	        return price;
+	    }
 	}
 
-	// Temperature.java
-	public class Temperature extends AdditionalOption{
-	    private String type;
-	
-	    public Temperature(Beverage beverage,String type) {
-	        super(beverage);
-	        this.type = type;
+Americano는 제품명을 받아, 제품명을 반환하는 기능을 합니다. 이 과정에서 받은 인자를 통해 name을 확장하는데, **객체의 책임**이 덧붙여진다고 볼 수 있습니다.     
+
+
+	public class KakaoSyrup extends AddtionalOption{
+
+    	public KakaoSyrup(Product product) {
+	        super(product);
 	    }
-	
 	
 	    @Override
 	    public String getName() {
-	        return type + beverage.getName();
+	        return " 카카오 "+product.getName();
 	    }
-	}
+	
+	    @Override
+	    public Integer getPrice() {
+	        return 500+product.getPrice();
+	    }
+	}     
 
-> Temperature과 Syrup의 getName()에서 객체의 책임이 덧붙여집니다.   
-  
-1. Coffee는 Beverage를 구현한 클래스로 객체 생성시 name을 초기화 합니다. 그 후, getName이라는 Method로 초기화한 name을 호출할 수 있습니다.    
-2. Temperature와 Syrup은 Beverage type의 객체와 type이라는 변수를 받아 객체를 초기화합니다.     
-3. 그후, Beverage의 name과 type을 더해 String을 반환하는 getName()이라는 Method를 갖고 있습니다.  이 과정에서 **객체의 책임**이 덧붙여진다고 볼 수 있습니다.   
+다음은 KakaoSyrup의 구현부 입니다. Americano와 마찬가지로 제품명을 확장하고, 가격까지 추가하는 역할을 수행합니다.     
 
+	public class Temperature {
 
-위 코드를 실행시키는 Main은 다음과 같습니다.    
+	    private String status;
+	    private Product product;
+	
+	    public Temperature(Product product, String status) {
+	        this.product = product;
+	        this.status = status;
+	    }
+	
+	    public String getName(){
+	        return status + product.getName();
+	    }
+	    public Integer getPrice(){
+	        return product.getPrice();
+	    }
+	} 
+	      
+마지막으로 Temperature 또한 위 클래스들과 동일한 동작을 수행합니다.     
 
-    public static void main(String args[]){
-        Beverage beverage = new Coffee("아메리카노");
-        AdditionalOption additionalOption = new Syrup(beverage,"코코넛 ");
-        AdditionalOption additionalOption2 = new Temperature(additionalOption, "아이스 ");
-        System.out.println(additionalOption2.getName());
+이제 위 예시를 통해 객체를 생성하고, 책임을 덧붙여 보겠습니다.     
+
+    public static void main(String[] args){
+        Beverage beverage = new Americano("콜드블루");
+        AddtionalOption addtionalOption = new KakaoSyrup(beverage);
+        Temperature temperature = new Temperature(addtionalOption,"아이스");
+        System.out.println("상품명 :: " + temperature.getName());
+        System.out.println("가격 :: " + temperature.getPrice());
     }    
 
-> 결과 >  아이스 코코넛 아메리카노     
+위 코드는 beverage 객체를 생성하고, 각 생성자들에게 넘겨 책임을 덧붙입니다.     
+
+> 콜드블루 커피에 KakaoSyrup을 추가하고, 차갑게 만드는 과정입니다.   
+
+	상품명 :: 아이스 카카오 콜드블루아메리카노   
+	가격 :: 3500     
 
 위 코드를 한줄로 줄이면 이렇게 되죠.
 
-	AdditionalOption additionalOption = new Temperature(new Syrup(new Coffee("아메리카노"),"코코넛 "), "아이스 ");
-
-보신바와 같이 Decorator패턴을 사용하면 객체의 책임 및 기능을 확장할 수 있다는 장점이 있습니다. 다만 가독성이 떨어진다는 단점이 존재합니다. 
-
-> 개인적으로 이해하기도 어렵구요 ..     
-
-또한, 요구사항이 늘어날수록 잡다한 Class들도 증가하게 되겠죠. 여러관점에서 사용하기는 어려운 패턴같습니다.     
-
-> 그럼에도 동적으로 책임을 확장시킬 수 있다는 점이 큰 매력으로 다가옵니다.    
+	Temperature temperature = new Temperature(new KakaoSyrup(new Americano("콜드블루")),"아이스");     
 
 
-[ +덧 ] 
+#### 예제 확장      
 
-Decorator 패턴을 공부하면서, 연관된 Class 들이 모두 공통된 Interface 또는 class를 상속 받아야 한다고 생각했습니다. 그래서 위 예제가 Beverage Interface를 모두 상속 받고 있죠.      
-하지만  제가 알던 것과는 달리, Decorator 패턴에서 필수적으로 공통된 Class/Interface를 구현할 필요는 없습니다.       
+> 위 예제는 사실 동적으로 확장한다는 느낌이 나지않습니다.    
 
-> Decorator 패턴에서 공통된 Class/Interface를 구현해야할 의무는 없습니다.     
-      
+Main을 조금 바꿔보겠습니다.       
+
+
+	public class Main {
+	
+	    public static void main(String[] args) {
+	        Main main = new Main();
+	        int choice = main.showMenu();
+	        Product product = main.choiceProduct(choice);
+	        choice = main.showSyrup();
+	        Product option = main.choiceSyrup(product, choice);
+	        choice = main.showTemperature();
+	        Temperature temperature = main.choiceTemperature(option, choice);
+	        System.out.println(temperature.getName());
+	        System.out.println(temperature.getPrice());
+	    }
+	
+	    public int showMenu() {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.println("메뉴를 선택해주세요.");
+	        System.out.println("1. 콜드브루");
+	        System.out.println("2. 더치커피");
+	        return scanner.nextInt();
+	    }
+	
+	    public int showSyrup() {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.println("시럽 선택해주세요.");
+	        System.out.println("1. kakao");
+	        System.out.println("2. another syrup");
+	        return scanner.nextInt();
+	    }
+	
+	    public int showTemperature() {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.println("온도 선택해주세요.");
+	        System.out.println("1. ice");
+	        System.out.println("2. hot");
+	        return scanner.nextInt();
+	    }
+	
+	    public Product choiceProduct(int choice) {
+	        Product product = null;
+	        switch (choice) {
+	            case 1:
+	                product = new Americano("콜드브루");
+	                break;
+	            case 2:
+	                product = new Americano("더치커피");
+	                break;
+	            default:
+	                break;
+	        }
+	        return product;
+	    }
+	
+	    public Product choiceSyrup(Product product, int choice) {
+	        AddtionalOption option = null;
+	        switch (choice) {
+	            case 1:
+	                option = new KakaoSyrup(product);
+	                break;
+	            case 2:
+	                // 다른 시럽 추가
+	                break;
+	            default:
+	                break;
+	        }
+	        return option;
+	    }
+	
+	    public Temperature choiceTemperature(Product product, int choice) {
+	        Temperature temperature = null;
+	        switch (choice) {
+	            case 1:
+	                temperature = new Temperature(product, "아이스");
+	                break;
+	            case 2:
+	                temperature = new Temperature(product, "따뜻한 ");
+	                break;
+	            default:
+	                break;
+	        }
+	        return temperature;
+	    }
+	}
+	 
+
+위 예시는 사용자가 메뉴를 선택하면, 그에 맞춰 가격과 상품명이 정해집니다.  
+
+	메뉴를 선택해주세요.
+	1. 콜드브루
+	2. 더치커피
+	> 2
+	시럽 선택해주세요.
+	1. kakao
+	2. another syrup
+	> 1
+	온도 선택해주세요.
+	1. ice
+	2. hot
+	> 1
+	아이스 카카오 더치커피아메리카노
+	3500        
+
+> 이렇게말이죠.   
+
+ 
 
 #### Java의 I/O 구조    
 
@@ -165,8 +300,8 @@ Decorator 패턴을 공부하면서, 연관된 Class 들이 모두 공통된 Int
 	public BufferedReader(Reader in) // 생성자     
 
 
-위 코드만으론 각 객체들이 어떤 관계에 있는지 추측하기 어렵습니다. 코드를 추척하면서 관계를 알아보죠.        
-
+위 코드만으론 각 객체들이 어떤 관계에 있는지 추측하기 어렵습니다.    
+> 코드를 추척하면서 간단하게 관계를 알아보죠.        
 > InputStream과 InputStreamReader/BufferedReader의 상속 구조는 다음과 같습니다.     
    
 <br>
@@ -181,11 +316,23 @@ Decorator 패턴을 공부하면서, 연관된 Class 들이 모두 공통된 Int
 
 (+) BufferedReader 와 InputStreamReader의 생성자는 Default 생성자를 갖고 있지않고, 필수적으로 인자를 받아 진행합니다.
 
-(추가적으로 코드를 더 작성해볼까 ? )  
+> 즉, 강제적으로 정해진 Type의 객체를 받아야만 사용이 가능하게 설계되어 있습니다.      
 
 
 
 
+#### 정리    
+
+보신바와 같이 Decorator패턴을 사용하면 객체의 책임 및 기능을 확장할 수 있다는 장점이 있습니다. 다만 가독성이 떨어진다는 단점이 존재합니다. 
+
+> 개인적으로 이해하기도 어렵구요 ..     
+
+또한, 요구사항이 늘어날수록 잡다한 Class들도 증가하게 되겠죠. 여러관점에서 사용하기는 어려운 패턴같습니다.     
+
+> 그럼에도 동적으로 책임을 확장시킬 수 있다는 점이 큰 매력으로 다가오고, Java의 경우 File I/O가 Decorator 패턴으로 구현되어 있기에, 알아두면 좋은 패턴이라고 생각합니다.    
+
+
+ 
 #### 마치며    
 
 Decorator 패턴은 사용하기 위해 정리했다기 보다, I/O 부분을 이해하기 위해 정리한 내용입니다. 싱글톤이나 팩토리, 전략 패턴등 다양한 패턴들은 적용해볼 기회가 있었지만, Decorator은 아직 사용해 본적은 없습니다.     
@@ -193,10 +340,8 @@ Decorator 패턴은 사용하기 위해 정리했다기 보다, I/O 부분을 �
 > API 설계나 규모있는 프로젝트를 진행하다보면 적용해 볼 수 있겠죠 ?    
 
 lusiue@gmail.com     
-08-08
+08-08~11
 
 
 
-
-
-[자바 디자인 패턴 8 - Decorator](http://egloos.zum.com/iilii/v/3850836)       
+[자바 디자인 패턴 8 - Decorator](http://egloos.zum.com/iilii/v/3850836)         
