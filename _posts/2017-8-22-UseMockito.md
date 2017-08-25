@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mockito사용방법
+title: 02-Mockito사용방법
 tags:  Test TDD
 categories:  Test
 ---       
@@ -258,6 +258,6 @@ eq(value)을 사용하면 특정 변수의 값으로 함수가 호출됬는지�
 
 
 
-2017-08-23      
+2017-08-22      
 
 lusiue@gmail.com   
