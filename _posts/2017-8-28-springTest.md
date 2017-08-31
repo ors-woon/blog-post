@@ -10,7 +10,7 @@ categories:  Test
 
 > Mockito[Test-FrameWork]를 썻으면 됬지! 무슨 Test를 또하냐 !    
 
-라는 생각을 했습니다. 하지만 spring camp에서 진행됬던 test 관련 영상을 보고 사용하기 시작했고 , 써본결과 정말 좋은 도구라는걸 깨달았습니다.   
+라는 생각을 했습니다. 하지만 spring camp에서 진행됬던 test 관련 영상을 보고 사용하기 시작했고 , 정말 좋은 도구라는걸 깨달았습니다.   
 
 Youtube 영상으로는 [Spring-camp Test](https://www.youtube.com/watch?v=k_88ADbuJqQ&t=1045s)을 보시면 좋을 것 같습니다.    
 
