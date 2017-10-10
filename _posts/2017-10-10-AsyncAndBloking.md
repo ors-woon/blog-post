@@ -27,7 +27,7 @@ categories: 비동기
 
 <center>
 <img src="/public/img/Thread.jpg"/>      
-[함수의 호출을 방식에 대한 그림입니다.]
+[함수 호출에 대한 그림입니다.]
 </center>
  
 ##### Blocking & Non Blocking            
