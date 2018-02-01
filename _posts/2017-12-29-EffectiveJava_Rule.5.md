@@ -17,6 +17,8 @@ categories: Effective
 
 	String str = new String("HelloWorld");
 
+
+
 지극히 정상적(?)인 코드이지만 이는 분명한 안티 패턴입니다.  
 만약 for문에서 해당코드를 실행할 경우, for문 만큼의 객체가 생성되고 이는 GC나 Memory 입장에서도 큰 부담이 됩니다.   
 
