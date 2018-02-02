@@ -34,7 +34,7 @@ categories: Effective
 
 학부생때는 `new String()`의 줄임말이 `= ""` 라고 배웠지만 위 코드의 동작방식은 꽤 다릅니다.    
 
-#### 면접 질문   
+#### 면접 질문 - String pool  
 
 	String str = "";
 	String str = new String("");
@@ -94,25 +94,48 @@ intern 메서드가 호출되면, 일차적으로 String pool의 각종 문자�
 여담이지만, StringPool에 들어가면 CG의 대상이 될 수도, 안될 수도 있다고합니다. JVM의 버전에 따라 달라진다고하네요. :D
 
 
-
-
 https://androidexample.com/Strings_In_Java/example.php?view=description&aid=149&article=163&mcat=2
 
 http://www.baeldung.com/java-string-pool
 
 > 경량패턴의 일종이라던데 .. 
 
+#### Immutable or static final 변수들에 대해
+
 다시 책 내용으로 돌아와서,  String 뿐만 아니라 1장에서 봤던 Boolean.valueOf()또한 객체를 재사용한다는 점에서 비슷한 패턴이라 생각하시면 됩니다.
 
 또한 Immutable 객체 외에 `static final`로 선언된 변수 또는 `static final` 취급을 받는 변수의 경우 전역변수로 한번만 초기화 후 사용하라는 말도 해줍니다. 
 
-> 예시 ? 
+	private exampleMethod(String input){
+		String defaultStr = "hello";
+		return defaultStr + input;
+	}
+
+> 정말 간단한 예시를 만들다보니 .. 코드가 이상할 수 있습니다 :( 
+
+위예시에서 메서드를 호출할 때마다, defaultStr이 선언되며 메모리를 잡아먹게됩니다. 즉, 초기 값을 갖으며 값이 바뀔 일이 없을 경우 위 방식보단 static final을 이용해 전역변수로 분리해야합니다.  
+
+	private static final String defaultStr = "";
+	
+	private exampleMethod(String input){
+		return defaultStr + input;
+	}
+
+이런식으로 말이죠. 
+
+> 위 코드에 문제가 더 있지만 .. 여기서 말하진 않겠습니다.   
+
+
+
+#### 초기화 지연은 하지 말 것 
 
 또한 초기화 지연은 좋지만 코드가 복잡해지므로 하지 말라는 말도 ..
 
+#### HashMap   
+
 HashMap의 Keyset 또한 꽤 유용한 코드  
 
-AutoBoxing 하지 말것 .
+#### Object Pool은 사용하지 말자  
 
 객체풀은 앵간하면 쓰지 말것 
 
