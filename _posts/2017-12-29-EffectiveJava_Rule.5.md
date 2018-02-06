@@ -94,8 +94,6 @@ intern 메서드가 호출되면, 일차적으로 String pool의 각종 문자�
 여담이지만, StringPool에 들어가면 CG의 대상이 될 수도, 안될 수도 있다고합니다. JVM의 버전에 따라 달라진다고하네요. :D
 
 
-https://androidexample.com/Strings_In_Java/example.php?view=description&aid=149&article=163&mcat=2
-
 http://www.baeldung.com/java-string-pool
 
 > 경량패턴의 일종이라던데 .. 
