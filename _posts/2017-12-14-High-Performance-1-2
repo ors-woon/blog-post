@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  Rule.1-2 High Performance Web Sites
-tags: self-study
+title:  HighPerformance-Web-1
+tags: HighPerformance-Web WEB
 categories: book-webPerformance
----
+---   
 
+   
 #### High Performance WEB    
 
 #### Rule.1 HTTP 요청을 줄여라.
