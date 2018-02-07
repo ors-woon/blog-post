@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  [Rule.1-2] High Performance Web Sites
+title:  High Performance Web Sites-5
 tags: self-study
 categories: book-webPerformance
 ---
