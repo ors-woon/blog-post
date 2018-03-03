@@ -40,8 +40,7 @@ layout: default
 <div id="progress" style="height: 8px;">
   <div id="bar" style="width: 0%;"></div>
   <div class="container">
-    <div id="scroll-title">
-      <h1 class="post-title">{{ page.title }}</h1>
+    <div id="scroll-title">      
       <span class="post-date">{{ page.date | date_to_string }}</span>
     </div>
   </div>
@@ -83,7 +82,7 @@ layout: default
 
 <script>
   var threshold = $('h1').offset().top + $('h1').height() - $('nav').height(),
-    $postContent = $('.post-content'),
+    $postContent = $('.post'),
     ph = $postContent.height(),       // post height
     wh = $(window).height();          // window height
 $(document).scroll(function () {
