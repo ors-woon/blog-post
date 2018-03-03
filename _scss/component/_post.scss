@@ -69,3 +69,35 @@
   color: inherit;
 }
 
+#progress {
+  background: rgba(0,0,0,0.2);
+  height: 8px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 50px;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  width: 100%;
+  z-index: 900;
+}
+#bar {
+  background-color: #0898b3;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  width: 0;
+}
+#scroll-title {
+  color: white;
+  position: absolute;
+  top: 0px;
+  padding: 5px 0;
+}
