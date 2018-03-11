@@ -8,6 +8,7 @@ categories: Java
 최근 면접을 준비하면서 정리한 글입니다. Annotation에 대한 짧은 글로, 왜 등장했는지에 초점을 맞춰 글을 작성하였습니다.        
 
 > Effective의 Rule.35와 연결됩니다.
+(Rule.35 작명패턴 대신, 어노테이션을 사용하라)
 
 #### JAVA Annotation 이란 ?        
 
