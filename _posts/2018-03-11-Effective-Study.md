@@ -114,3 +114,144 @@ DIP와 연결되는 내용으로 당연한겁니다.
 
 여기까지가 규칙 40 이였습니다 :D
 
+#### 오버로딩할 떄는 주의하라  
+
+오버로딩은 런타임이 아닌, 컴파일시점에 결정됩니다. 
+
+
+    public static void main(String[] args) {
+
+        List<Object> list = Arrays.asList(new Integer(5),new String("5"),new Object());
+
+        for(Object obj : list){
+            classify(obj);
+        }
+
+    }
+
+    public int sum(final int a, final int b) {
+        return a + b;
+    }
+
+    public static void populateDate(final Date date){
+        date.setTime(10000);
+        System.out.println(date);
+    }
+
+    public static String classify(Integer num){
+        System.out.println("num");
+        return null;
+    }
+
+    public static String classify(String num){
+        System.out.println("String");
+        return null;
+    }
+
+    public static String classify(Object num){
+        System.out.println("Object");
+        return null;
+    }
+
+> classify(Object obj) 를 3번 호출한 결과가 나옵니다.
+
+그 이유는 오버로딩은 compile 시점에서 결정되기 때문입니다.
+
+때문에 혼란을 막기위해 같은 함수 명, 같은 개수의 인자를 같은 함수를 되도록 피하라고 말합니다.  
+
+(생성자에도 같은 문제가 있어, 정적팩터리메서드에 대해 언급한적이 있습니다.)
+
+또한 인자의 수가 같더라도, 인자가 확실히 다르면 혼란을 겪지 않는다고 언급하는데요.
+
+casting이 불가능한 자료형에 대해서 `확실히 다르다`라고 표현합니다.
+
+   public static void main(String[] args) {
+
+        Set<Integer> set = new TreeSet<>();
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = -3; i<3; i++){
+            set.add(i);
+            list.add(i);
+        }
+
+        System.out.println(set + " :: " + list);
+
+        
+        for(int i = 0; i<3; i++){
+            set.remove(i);
+            list.remove(i);
+        }
+
+        System.out.println(set + " :: " + list);
+
+    }
+
+
+이 코드의 결과값은 조금 예상하기 어렵습니다.
+
+    -3 , -2 , -1 
+    -2 , 0,  2  
+
+이유는 remove 함수에 있습니다.
+    
+    remove(int) / remove(integer)
+
+list에는 이 두함수가 존재하며, 각각의 동작 방식은 다르므로 예상치 못한 결과를 불러옵니다.
+이는 autoboxing 때문입니다.
+
+> 즉, 확실히 다르다. 는 autoboxing까지 고려한 사항입니다.
+
+`계승관계가 없는 클래스끼리`를 확실히 다르다 라고 말합니다.
+
+#### vararags 는 신중하게 사용하라 
+
+varargs를 사용하면, 배열을 초기화/생성하기 때문에 오버해드가 들게 되고, 사용자 입장에서도 잘못된 코드를 생성할 수 있으므로 사용하지 말아라.  
+
+
+    public int min(final int ...a) {
+        int min = a[0];
+        
+        for(int i = 1; i< a.length; ++i){
+            if(min > a[i]){
+                min = a[i];
+            }
+        }
+        return min;
+    }
+
+여기서의 문제는 a 가 1개라면 ? 
+컴파일은 문제를 일으키지않고 런타임에 문제를 일으킨다.
+이 때문에 varargs만 사용하지 않고, 최소 인자를 함께 받는 방법이 존재합니다.
+
+
+
+    public int min(final int first,final int ...arrays) {
+       ...
+    }
+
+이런식으로 사용하고 있습니다.
+
+> 실제로 다른 api들에서 이렇게 사용하는걸 꽤 본적이 있습니다 :D 
+
+#### null 대신 빈 배열이나 컬렉션을 반환하라 .
+
+null을 반환할 경우, client는 매번 null처리를 진행해야한다.
+
+성능의 문제를 주장할 수 있는데, 책에서는 프로파일링 결과로 나오지 않는 이상, 성능걱정을 하지 말라고 언급합니다.
+
+> 즉, 체계화된 툴이 아닌 추측만으로 성능을 걱정하지 말라고 하는것 같네요 
+
+또한 변경 불가능한 empty-collection을 반환하면 사용자는 조금더 편하게 사용할 수 있으므로 이를 더 지향하라고 언급합니다 .
+
+#### 모든 api 요소에 주석을 달아라 
+
+네 주석 다세요 
+
+> 되도록이면 java doc 으로 ...
+
+
+끝 ! 
+
+
+
