@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Effective Java Rule.59   
+title:  Effective Java Rule.59+   
 tags: Effective Study 
 categories: Effective
 ---   
