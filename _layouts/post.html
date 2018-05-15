@@ -62,7 +62,7 @@ $(document).scroll(function () {
 <script src="https://utteranc.es/client.js"
         repo="JangChulwoon/blogComment"
         branch="master"
-        issue-term="{{ page.title }}"
+        issue-term="{{ page.date | date_to_string }}/{{ page.title }}"
         async>
 </script>
 
