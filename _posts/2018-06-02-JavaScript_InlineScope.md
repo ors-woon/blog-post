@@ -10,11 +10,11 @@ categories: Js
     Library의 함수가 inline이라서 잘 안써요.
 
 특정 library의 함수가 (내부적으로) inline 처리를 한다는 말을 듣고,
-순간 `왜?`라는 의문점이 생겼습니다. 
+`왜 안좋지?`라는 의문점이 생겼습니다. 
 
 > Library가 뭔지 기억이 안나서.. 저렇게 표현했습니다. 
 
-제가 알고있는 inline은 HTML의 inline 과 block 속성이 였기에... 
+제가 알고있는 inline은 HTML의 inline 과 block 속성이 였기에...      
 `inline Js`를 왜 피해야하는가에 대해 배운 내용을 정리하려 합니다. 
 
 #### Inline   
@@ -33,7 +33,9 @@ View 역할인 HTML에 처리 로직이 삽입되기에, 결과적으로 함수�
 
     <a ng-click = "ctr.functions()">
 
-결과적으로 View와 Js가 의존성이 있는건 inline의 문제점과는 거리가 있습니다. 
+결과적으로 View와 Js가 의존성이 있는건 팀원분이 말씀하신 inline의 문제점과는 거리가 있습니다. 
+
+> 저희 팀은 angular.js 를 사용하고 있습니다.  
 
 결국 조금 더 검색을 하기 시작했고, 해당 [링크](https://dev.to/chiefoleka/how-to-use-inline-javascript-with-html-you-definitely-like-really-bad-code-1a1o)에서 이유를 알 수있었습니다.
 
