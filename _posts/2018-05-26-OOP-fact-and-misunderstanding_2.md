@@ -2,7 +2,7 @@
 layout: post
 title:  fact-and-misunderstanding-2
 tags: Study 
-categories: OOP  
+categories: fact-and-misunderstanding  
 ---   
 
 이번 포스트(2장)에서는 객체의 특성을 총 3가지로 분류하고 이를 설명합니다.

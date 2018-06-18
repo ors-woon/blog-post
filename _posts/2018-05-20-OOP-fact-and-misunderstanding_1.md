@@ -2,7 +2,7 @@
 layout: post
 title:  fact-and-misunderstanding
 tags: Study 
-categories: OOP  
+categories: fact-and-misunderstanding  
 ---   
 
 #### 들어가기 전에.. 
