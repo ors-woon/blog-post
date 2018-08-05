@@ -1,16 +1,14 @@
 ---
 layout: post
 title: Decorator 패턴에 대하여
-tags:  Java WebServer I/O
-categories:  WebServer제작
+tags:  Java pattern
+categories:  pattern
 ---       
 
 #### 개요     
 
-시간이 날때마다, 간단한 Java를 이용하여 웹서버를 구현해 보려합니다. 교육 중에 과제로 진행된 부분이기도하고, 개인적으로 웹서버를 구현한다는 것이 큰 도전(?)으로 다가와, 한 단계씩 진행하며 블로그에 글을 남겨놓으려 합니다.     
-
-단순히 개발만 진행하기에는 조금 아쉬울 것같아서 한 단계씩 글을 작성해 보겠습니다.     
-
+시간이 날때마다, Pattern을 학습해보고 정리하려합니다.
+그 첫번째가 socket 사용시 볼 수 있는 DecoratorPattern 입니다     
 	
 	BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));      
 
@@ -337,7 +335,11 @@ Main을 조금 바꿔보겠습니다.
 
 Decorator 패턴은 사용하기 위해 정리했다기 보다, I/O 부분을 이해하기 위해 정리한 내용입니다. 싱글톤이나 팩토리, 전략 패턴등 다양한 패턴들은 적용해볼 기회가 있었지만, Decorator은 아직 사용해 본적은 없습니다.     
 
-> API 설계나 규모있는 프로젝트를 진행하다보면 적용해 볼 수 있겠죠 ?    
+> API 설계나 규모있는 프로젝트를 진행하다보면 적용해 볼 수 있겠죠 ?   
+
+지금와서 생각해보면 패턴을 사용한다 라는 느낌보단, `패턴을 통해 커뮤니케이션한다` 라는 말이 더 어울리네요.
+
+계속 학습해보겠습니다 ~! 
 
 lusiue@gmail.com     
 08-08~11
