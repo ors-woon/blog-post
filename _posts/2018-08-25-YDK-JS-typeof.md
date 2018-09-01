@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  You don't know Js-2.0
+title:  You don't know Js-typeof-instanceOf
 tags: JS
 categories: Book
 ---

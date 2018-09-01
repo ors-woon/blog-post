@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  You don't know Js-2-1
+title:  You don't know Js-prototype
 tags: JS
 categories: Book
 ---
