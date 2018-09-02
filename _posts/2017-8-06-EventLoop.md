@@ -9,7 +9,7 @@ categories:  Js
 [Promise에 대하여](/js/2017/08/03/Promise/)라는 글을 작성하면서, 큰 삽질을 했습니다.     
 
 	var check1 = function(data){
-		return  new Promise(function(resolve,reject){	
+		return  new Promise(function(resolve,reject){
 			if(data !==0){
 				setTimeout(function() {
 	            	resolve(data*2);
@@ -26,7 +26,7 @@ categories:  Js
 		console.log(error);
 	});       
 
-위 코드를 실행 시키면, 실패라는 글이 출력됩니다. 
+위 코드를 실행 시키면, 실패라는 글이 출력됩니다.
 
 > 코드를 작성한 제 의도는, 8이 출력되는 것 입니다.    
 
@@ -38,7 +38,7 @@ categories:  Js
 
 #### Js와 단일 스레드       
 
-기본적으로 Js는 단일 스레드 기반 언어로, 단일 호출 스택을 사용하고, 다른 프로그램 언어들처럼 요청이 들어올때마다 순차적으로 호출스택에 담아서 처리한다고 합니다. 
+기본적으로 Js는 단일 스레드 기반 언어로, 단일 호출 스택을 사용하고, 다른 프로그램 언어들처럼 요청이 들어올때마다 순차적으로 호출스택에 담아서 처리한다고 합니다.
 
 > 하나의 스레드 만으로, 수많은 이벤트와 비동기처리를 동시에 수행 할 수 있을지 의문이 생깁니다.   
 
@@ -46,7 +46,7 @@ Js는 어떻게 동시성을 지원할까요 ?
 여기에 대한 답이 바로 **Event Loop** 입니다.      
 
 > 한가지 짚고 넘어가야할 부분은, Js가 단일 스레드로 동작한다는 말은 Js Engine이 단일 호출 스택을 사용한다는 의미입니다.      
-   
+
 #### Browser 구조
 
 <img src = "/public/img/browserStructure.png">         
@@ -57,9 +57,9 @@ Js는 어떻게 동시성을 지원할까요 ?
 
 기본적으로 Js를 구동하는 환경들은(Node 및 Browser 등) 멀티 스레드를 지원합니다.
 멀티 스레드인 구동환경과 단일 스레드인 Js Engine을 연동하기 위해 추가된 개념이 Event Loop 입니다.    
-   
+
 > Event Loop 나 Task Queue를 학습하기 전에 Js의 실행 방식을 알아보겠습니다.     
- 
+
 #### Js의 실행 방식     
 
 Js의 함수가 실행되는 방식을 Run to Completion 이라고 말합니다. Js Engine에서 함수가 실행되면, 함수가 끝날 때 까지 다른 어떤 작업도 중간에 끼어 들 수 없다는 것을 뜻합니다.
@@ -72,7 +72,7 @@ Js의 함수가 실행되는 방식을 Run to Completion 이라고 말합니다.
 
 
 	var check1 = function(data){
-		return  new Promise(function(resolve,reject){	
+		return  new Promise(function(resolve,reject){
 			if(data !==0){
 				setTimeout(function() {
 	            	resolve(data*2);
@@ -93,7 +93,7 @@ Js의 함수가 실행되는 방식을 Run to Completion 이라고 말합니다.
 
 <img  src = "/public/img/taskQueue.png">     
 
-그림을 간단히 설명하자면, 
+그림을 간단히 설명하자면,
 
 1. 넘겨받은 data가 0이 아니므로 setTimout을 실행시킵니다.     
 2. 다만 이때, setTimeout의 callback 함수는 시간이 지났다고 해서 바로 실행되지 않습니다.       
@@ -109,18 +109,18 @@ Js의 함수가 실행되는 방식을 Run to Completion 이라고 말합니다.
 > 여기서 알수 있는 점은 비동기 함수의 응답이 온다고해서, 바로 실행되지 않는다는 점과 Task Queue에 비동기의 Call back 함수가 쌓인다는 점입니다.    
 
 setTimeout를 포함한  비동기 함수들은 바로 실행되는 것이 아닌 Task Queue에서 대기하고, Call Stack이 비어있으면 실행됩니다.       
-   
+
 이 과정에서 Call Stack이 비어있는지를 확인하고 (1), 비어있다면 Task Queue에 있는 Call back 함수를 실행(2)하는 역할을 **Event Loop**가 합니다.     
 
-정리하자면 Task Queue는 비동기의 Call back 함수들을 저장하는 역할을 수행하고, Event Loop는 Call Stack 과 Task Queue를 감시하여 Task Queue의 함수를 꺼내와 실행하는 역할을 합니다. 
- 
+정리하자면 Task Queue는 비동기의 Call back 함수들을 저장하는 역할을 수행하고, Event Loop는 Call Stack 과 Task Queue를 감시하여 Task Queue의 함수를 꺼내와 실행하는 역할을 합니다.
+
 
 #### 비동기의 예외처리     
 
 ajax에서 예외처리가 힘든점도 Event Loop 및 Task Queue와 연관이 있습니다.     
 
- 
-	
+
+
 	try{
 		$.ajax({
 			success: function(){
@@ -133,7 +133,7 @@ ajax에서 예외처리가 힘든점도 Event Loop 및 Task Queue와 연관이 �
 
 위 코드의 경우 예상했던 에러처리를 하지 못합니다. 앞서 말한것 처럼 try안의 ajax 부분은 바로 실행되는것이 아닌 Task Queue에서 Call Stack이 비어있기를 기다립니다. 즉, try - catch문이 끝난 뒤에 ajax가 호출되고 throw를 뱉는 시점엔 이미 catch문은 반환되어 존재하지 않습니다.    
 만약 예외처리를 하고 싶다면 다음과 같이 코드를 작성해야합니다.   
-	 
+
 	$.ajax({
 		success: function(){
 			try{
@@ -161,7 +161,7 @@ ajax에서 예외처리가 힘든점도 Event Loop 및 Task Queue와 연관이 �
 예를들어 특정 스크립트가 완료되기 전까지 화면을 검게만들고, 작업이 끝나면 원상태로 돌리는 script를 작성한다고 합시다.     
 
 	$(function(){
-	
+
 		$("body").css("background-color","black");
 		for(var i =0; i <10000; ++i){
 			console.log(1);
@@ -181,14 +181,14 @@ ajax에서 예외처리가 힘든점도 Event Loop 및 Task Queue와 연관이 �
 	$(function(){
 
 		$("body").css("background-color","black"); // (1)
-		setTimeout(function(){ // (2) 
+		setTimeout(function(){ // (2)
 			for(var i =0; i <10000; ++i){
 				console.log(1);
 			}
 			$("body").css("background-color","white");
 		},0);
-	
-	}); 
+
+	});
 
 즉, (2)를 Task Queue에 추가함으로, 먼저들어온 (1)이 수행된 후 , (2)가 수행됩니다. 위와같이 작성하면 원하는 결과를 볼 수 있습니다.    
 
@@ -208,14 +208,14 @@ Task Queue 이외에도  MicroTask Queue 라는 개념이 존재합니다. 말�
 			}
 		});
 	}
-	
+
 	setTimeout(function() {
 	    console.log('setTimeout');
 	}, 0);
-	
+
 	check1().then(function(data) {
 	    console.log(data);
-	}).then(function(data) { 
+	}).then(function(data) {
 	    console.log("promise2");
 	});       
 
@@ -223,7 +223,7 @@ Task Queue 이외에도  MicroTask Queue 라는 개념이 존재합니다. 말�
 
 	setTimeout
 	promise
-	promise2 
+	promise2
 
 이처럼 나와야 합니다.     
 하지만 **chrome**에서의 결과는 조금 다르게 나옵니다.       
@@ -240,7 +240,7 @@ Task Queue 이외에도  MicroTask Queue 라는 개념이 존재합니다. 말�
 
 > 위에서 chrome을 언급한 이유는, 브라우저마다 호출 순서가 조금씩 다를 수 있기 때문입니다.   
 
-       
+
 
 조금 더 자세한 내용은 다음을 참조해 주세요.   
 [Difference between microtask and macrotask within an event loop context](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context)       
@@ -258,7 +258,7 @@ Task Queue 이외에도  MicroTask Queue 라는 개념이 존재합니다. 말�
 
 
 
-#### 참고한 글 
+#### 참고한 글
 
 Event Loop에 대한 전반적인 글       
 
@@ -275,7 +275,3 @@ Promise를 정리하다가 삽질한 것때문에 Event Loop에 대해 생각하
 
 2017 - 08 - 06     
 lusiue@gmail.com    
-
-
-
-  
