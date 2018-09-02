@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  You don't know Js-Function-eval-beWriting
+title:  You don't know Js-Function-eval
 tags: JS
 categories: Book
 ---
