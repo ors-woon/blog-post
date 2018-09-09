@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  You don't know Js-Cross-Browser-be-writing
+title:  You don't know Js-Cross-Browser
 tags: JS
 categories: Book
 ---
