@@ -1,9 +1,9 @@
 # Site Info
-title: JCW Dev_Blog 
+title: noLogging
 tagline: 'Github blog'
-description: '개발 공부를 하며 글을 정리하고 싶습니다 .'
+description: '글 쓰는 개발자'
 baseurl: ""
-url: http://jangchulwoon.github.io
+url: http://nologging.github.io/
 logo: '/public/logo.png'
 
 # Site configurations
@@ -15,7 +15,7 @@ kramdown:
 excerpt_separator: "<!-- more -->"
 sass:
   style: compressed
-  sass_dir: _scss    
+  sass_dir: _scss
 paginate: 5
 paginate_path: '/blog/page:num'
 permalink: pretty
@@ -25,28 +25,28 @@ version: 1.0.0
 # About/contact
 author:
   name: Jangchulwoon
-  description: 대학교에서 컴퓨터를 공부하고 있습니다. 
-  gravatar: 
+  description: 대학교에서 컴퓨터를 공부하고 있습니다.
+  gravatar:
   contact:
-    linkedin:  
-    github:    https://github.com/jangchulwoon
+    linkedin:
+    github:    https://github.com/nologging
     # facebook:  <hide>
-    twitter:   
-    weibo:     
+    twitter:
+    weibo:
     email:     lusiue@gmail.com
 
 # Navigation (2nd level links supported)
 nav:
-  Home:           
+  Home:
     - '/'
-  Blog:           
+  Blog:
     - '/blog/'
     - { Categories: '/blog/categories/' }
     - { Tags: '/blog/tags/' }
-  About:          
+  About:
     - '/about/'
-  Github Project: 
-    - 'https://github.com/jangchulwoon'
+  Github Project:
+    - 'https://github.com/nologging'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
