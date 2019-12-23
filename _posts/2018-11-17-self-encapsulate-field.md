@@ -1,26 +1,21 @@
----
+----
 layout: post
 title:  self encapsulate field
 tags: refactoring
 categories: Book
 ---
 
-Refactoring 책의 8장에 나오는 내용으로 `필드의 자체 캡슐화` 로 소개된다.
 
-책의 내용을 한줄로 요약하자면..
+```
+필드에 직접 접근하던 중 그 필드로의 결합에 문제가 생길 땐,
+    읽기 / 쓰기 메서드를 작성하여, 메서드를 통해서만 필드에 접근하게 만들자.
+```
 
-> 클래스 내부에서 사용하는 필드를 `private`으로 바꾸고 `setter/getter`로 접근해라 !
-
-여기까진 "당연한 내용이지!" 싶지만, private 클래스 내부에서도 `setter/getter`를 쓰라고 말한다.
-
-
-> 주의 
-
-아래 나오는 코드들은 즉흥적으로 작성한 것으로 억지가 있을 수 있습니다.   
-코드를 너무 깊게 보시진 마시고, `상황`을 생각해주세요 :)
-
+위 내용은 Refactoring 책의 8장에 나오는 내용으로 `필드의 자체 캡슐화` 로 소개됩니다.
 
 #### 예제
+
+> 변경 전 코드
 
 ```
 private int price;
@@ -31,17 +26,15 @@ public int getAmountPrice() {
     return (price * count) - (price * discount);
 }
 
-
-// 이하 setter/getter
+// getter
+// setter
 ```
 
-> 예제를 생각하다가 간단하고 보편적인 예제가 Product 라서 ..
 
-대부분의 코드는 위같이 작성될것이다. 외부 객체는 내부 값에 직접 접근하지 못해야하니까!
-하지만, 이번 장에서는 한걸음 더 나아가 아래처럼 코드를 작성할 수도 있다고 말한다.
+클래스 내부, 메서드 안에서 사용되는 변수들은 대부분 위와같이 `직접` 접근하도록 작성됩니다.
+이번 chapter 에서는 Refactoring 의 방법 중 하나로, 직접 접근하던 변수를 쓰기 / 읽기 메서드로 `간접` 접근하도록 변경하는 `필드의 자체 캡슐화`에 대하여 설명합니다.
 
-> 여기서 중요한점은, 작성을 할 수도 있다는 점이다. (해야만 하는 건 아니다.)
-
+> 변경 후 코드
 
 ```
 public int getAmountPrice() {
@@ -49,85 +42,27 @@ public int getAmountPrice() {
 }
 ```
 
-
-이 챕터를 처음 봤을 때, 반감을 갖고있었다.
-
-`"저렇게 사용하는 경우가 어딧어 약팔고 있네 .."`
-
-> 지금 난 약을 팔거다.
-
-#### 약을 팔자
+#### 장점
 
 
-위 방법을 사용하는 경우가 언젤까 `?` 곰곰히 생각해보자.   
+> 1. 공통 로직을 분리할 수 있음
 
-가장 먼저 떠오른 상황은 변수에 제약을 가하고 싶을 때이다.
+클래스 내부에 선언되어있는 변수에 대하여, 읽기 / 쓰기 메서드를 통해 변수에 접근하게 되면, 공통된 로직들을 따로 분리할 수 있다는 장점이 있습니다.
+만약 `price` 를 계산하기 위한 비즈니스 로직이나, 유효성 검증들을 읽기 메서드에서 함으로 코드의 중복을 막을 수 있게 됩니다.
 
-> 가정
+다만, 다른 개발자가 보기에는, 일반 getter / setter 로 인지할 수 있기때문에, 비즈니스 로직/ 유효성 검증이 필요한 메서드 명을 get / set 으로 표기하는건 혼란을 가져올 수 있습니다.
 
-오늘부터 할인 률은 최대 50% 까지 적용된다.
+> 2. 하위 클래스들에 대해 재정의 가능
 
-위 같은 가정이 주어졌을 때, 직접접근을 사용할 경  `discount`가 사용되는 모든 곳을 찾아, 유효성 검사를 하는 로직을 추가해야한다.
+상위 클래스에서 `간접 접근`을 통해 비즈니스 로직이 구현될 경우, 하위 클래스에서 읽기 / 쓰기 메서드를 재정의하여 로직을 완성시킬 수 있습니다.
 
-하지만, class 내부에서도 setter/ getter가 사용되고 있다면, getter 로직만 수정하면 된다.
-
-```
-public double getAmountPrice() {
-    return (getPrice() * getCount()) - (getPrice() * getDiscount());
-}
-
-public double getDiscount() {
-    if(discount > LIMIT_RATE){
-        return LIMIT_RATE;
-    }
-    return discount;
-}
-```
-
-> 위 이유만으론 약을 사갈것 같진 않다.
-
-#### 약을 조금 더 팔자
-
-이번에 팔 약은 `상속`이다.
-
-> 가정
-
-Product 내부에 할인 최대 비율이 제각각 다르다고 가정하자.
-신발 은 30%, 의류는 40% , 모자는 50% 으로로 가정하자.
-
-그럴 경우, 상위 클래스를 수정할 필요없이, 아래처럼 getter를 재정의하면 된다.
-
-```
-// 전략 패턴 느낌
-public class Cloth extends Product{
-
-    public static final double LIMIT_RATE = 0.4;
-
-    @Override
-    public double getDiscount(){
-        if (super.getDiscount() > LIMIT_RATE) {
-            return LIMIT_RATE;
-        }
-        return super.getDiscount();
-    }
-}
-```
-
-getDiscount를 재정의 함으로, 상위 로직에서 사용되는 discount를 직접 변경할 수 있다는 장점이 있다.
-
+> 다형성을 이용하여 로직을 구현 할 수 있습니다.
 
 
 #### 여담
 
-Effective Java 의 내용중 이런 내용이있다.
+개인적으로, 상속을 이용한 구조가 아니라면 나서서 사용할것 같진 않은 refactoring 방식입니다.
+아직은, `직접 변수 접근`이 더 괜찮아보이네요 :)
 
-```
-재정의 가능한 함수를 객체 초기화에 사용하지 마라
-```
 
-class 가 final이 아니고, 함수의 접근 제한자가 public / protected 라면 객체 초기화시에는 사용해선 안된다는 말이다.
-
-> 하위 함수에서 재정의 할 경우, 예상치 못한 동작을 할 수 있기 때문이다.
-
-이번 챕터 마지막에 짤막하게 나오는데, 문득 생각이 나서 적어봤다. :)
-lusiue@gmail.com    
+lusiue@gmail.com
