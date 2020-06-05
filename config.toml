@@ -1,5 +1,5 @@
 baseURL = "https://jangchulwoon.github.io"
-title = "Notepadium"
+title = "Sketchbook"
 theme = "hugo-notepadium"
 copyright = "©2020 Notepadium."
 
@@ -28,7 +28,7 @@ style = "auto"  # default: auto. light: light theme, dark: dark theme, auto: bas
 dateFormat = "Jan 02, 2006"  # if unset, default is "2006-01-02"
 readingTime = false  # show reading time after article date
 logo = ""
-slogan = "100% JavaScript-free"
+slogan = "빈 스케치북에 뭐라도 적어놔야지"
 #license = "<a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt=Creative Commons License style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png /></a><br />This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>."
 
 [params.assets]
@@ -55,6 +55,6 @@ title = "About"
 url = "/about/"
 
 [[params.nav.custom]]
-title = "notepad"
-url = "jangchulwoon.github.io"
+title = "Sketchbook"
+url = "/"
 
