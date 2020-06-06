@@ -38,12 +38,11 @@ Wrapper type, 즉 참조형은 java.lang.Object을 상속받은 자료형으로 
 	<img src="/images/primitive-wrapper.png">
 </p>
 
-primitve 와 Wrapper Type을 분리한 이유를 이야기하기 전에, Boxing / UnBoxing 에 대해 짚고 넘어가봅시다.
+`문득..` primitve 와 Wrapper Type을 분리한 이유가 궁금해지지않나요?
 
-#### Boxing 과 UnBoxing   
+#### [알쓸신잡] Boxing 과 UnBoxing   
 
-Boxing은 간단하게 말해서 primitive 값을 Wrapper 값으로 변환하는 과정입니다.   
-UnBoxing 은 Boxing과 반대로 Wrapper 값을 primitive 값으로 변환하는 과정이구요.   
+Boxing은 간단하게 말해서 primitive 값을 Wrapper 값으로 변환하는 과정입니다. UnBoxing 은 Boxing과 반대로 Wrapper 값을 primitive 값으로 변환하는 과정이구요.   
 
 ```
 	Integer integer = new Integer(5); // Boxing
@@ -117,7 +116,7 @@ Integer는 Wrapper Type이지만, == 을 사용할 수 있는 범위가 존재�
 jdk 1.5 에서부턴 AutoBoxing이 지원되어, 큰 불편함이 없지만   
 알아두면 좋을 것같아서 정리해봤습니다. ! 
 
-#### Java Generic 에서의 차이  
+#### [알쓸신잡] Java Generic 에서의 차이  
 
 // todo
 
