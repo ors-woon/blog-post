@@ -98,7 +98,28 @@ Wrapper Type 만으로 개발을 하게되면, 크게 2가지 정도의 문제�
 2. Null check 를 해야한다.
 ```
 
-> todo string == 연산과 Null check 코드    
+#### 1. equals 연산을 사용해야한다.
+
+Wrapper Type 은 `Object`입니다. 때문에 동일성`==`비교로는 객체가 동등`equals`한지 알 수 없습니다. 
+
+~무슨 말이야~
+
+<center>
+	<img src="/images/object-equals.png">
+</center>
+
+> output 
+
+```
+false
+true
+424058530
+321001045
+```
+
+위 결과에서 알 수 있듯, `==`은 객체의 참조 값(`주소값`)을 이용하여 비교하기 때문에 실제 같은 값이라도 `false` 가 나옵니다.
+만약 실제 값을 비교하고 싶다면, equals 를 사용해야합니다.
+
 
 #### [알쓸신잡] Integer Caching
 
@@ -110,16 +131,22 @@ Integer는 Wrapper Type이지만, == 을 사용할 수 있는 범위가 존재�
 	} 
 ```
      
-> Integer class는 -128~ 127의 범위를 cache로 저장해둔다.    
-> 때문에 해당 범위 내에선 == 를 사용 가능하다.   
+> Integer class는 -128~ 127의 범위를 cache로 저장해 두기때문에,  해당 범위 내에선 == 를 사용 가능합니다.  
 
-jdk 1.5 에서부턴 AutoBoxing이 지원되어, 큰 불편함이 없지만   
-알아두면 좋을 것같아서 정리해봤습니다. ! 
 
-#### [알쓸신잡] Java Generic 에서의 차이  
+#### 2. Null check 를 해야한다.
 
-// todo
+Wrapper Type, `객체`는 항상	Null 값을 갖을 수 있습니다. 즉, 사용하기전 Null check 를 해야하며, Method Parameter 로 Wrapper Type 을 넘기다보면, 어떤 연산을 하기 전, 항상 Null check 를 해두어야 의도치않은 예외를 막을 수 있습니다.
 
+> Null 값으로 들어온 Wrapper를 unBoxing 할때도 NPE를 발생시킵니다.
+
+
+위 같은 이유들로, 특별한 이유(`null 값이 의미가 있는 경우`)가 없다면 Wrapper Type 을 사용하는 것을 권장하지는 않습니다.
+
+
+#### 마치며 
+
+jdk 1.5 에서부턴 AutoBoxing이 지원되어, Wrapper / Primitive 간의 전환이 쉬워졌습니다. ~미비하긴 하지만,~ 잦은 autoBoxing 은 성능상에 문제가 될 수 있으며, NPE 의 위험에 항상 노출되기 때문에 큰 이유가 없다면, Primitive 의 사용을 권장드립니다 :) 
 
 
 참조   

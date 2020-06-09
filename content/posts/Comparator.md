@@ -1,6 +1,6 @@
 +++ 
 author = "chulwoon.jang" 
-title = "title" 
+title = "-able / -tor Interface" 
 date = "2020-06-04" 
 description = "A brief description of Hugo Shortcodes" 
 tags = ["shortcodes"] 
