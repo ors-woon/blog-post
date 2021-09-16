@@ -76,10 +76,3 @@ vi kmplex-hugo-bloc
 vi /etc/hosts
 sudo !!
 ```
-
-
-일단은 이정도 ? 
-
-
-
-ctrl + r / !! / !$  정도는 자주 쓸거 같음 
