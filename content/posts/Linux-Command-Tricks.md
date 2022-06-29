@@ -6,6 +6,7 @@ description = "리눅스 커맨드 팁 정리"
 tags = ["Linux","Trick"] 
 series = ["Linux"] 
 categories = ["Linux"] 
+summary = " "
 +++
 
 

@@ -6,6 +6,7 @@ description = "스레드와 프로세스에 대한 간단한 정리"
 tags = ["OŚ","CS","Concurrent"] 
 series = ["CS"] 
 categories = ["CS"] 
+summary = " "
 +++
 
 [자바 병렬 프로그래밍](http://www.yes24.com/Product/Goods/3015162) 책을 읽기 전, 간단하게 프로세스와 스레드에 대한 개념을 정리하고자합니다.

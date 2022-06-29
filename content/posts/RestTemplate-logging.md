@@ -6,6 +6,7 @@ description = "RestTemplate Logging 예제"
 tags = ["RestTemplate"] 
 series = ["Spring"] 
 categories = ["Kotlin","Spring"] 
+summary = " "
 +++
 
 QA 및 개발 환경에서 외부 API에 대한 요청/응답을 로깅해야하는 상황이 자주 발생합니다. 
