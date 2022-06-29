@@ -1,6 +1,6 @@
 [submodule "themes/hugo-notepadium"]
 	path = themes/hugo-notepadium
-	url = https://github.com/kmplex/hugo-notepadium.git
+	url = https://github.com/ors-woon/hugo-notepadium.git
 [submodule "public"]
 	path = public
-	url = https://github.com/jangchulwoon/janchulwoon.github.io.git
+	url = https://github.com/ors-woon/ors-woon.github.io.git
