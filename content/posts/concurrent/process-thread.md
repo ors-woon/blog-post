@@ -1,5 +1,4 @@
 +++ 
-author = "chulwoon.jang" 
 title = "스레드와 프로세스 정리" 
 date = "2021-09-25" 
 description = "스레드와 프로세스에 대한 간단한 정리" 
