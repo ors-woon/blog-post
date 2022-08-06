@@ -1,9 +1,11 @@
 [submodule "themes/hugo-notepadium"]
 	path = themes/hugo-notepadium
 	url = https://github.com/ors-woon/hugo-notepadium.git
+	branch = master
 [submodule "public"]
 	path = public
 	url = https://github.com/ors-woon/ors-woon.github.io.git
+	branch = master
 [submodule "ors-woon.github.io"]
 	path = ors-woon.github.io
 	url = https://github.com/ors-woon/ors-woon.github.io.git
