@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/public" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/themes/hugo-notepadium" vcs="Git" />
   </component>
 </project>

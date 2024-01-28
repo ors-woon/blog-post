@@ -9,3 +9,6 @@
 [submodule "ors-woon.github.io"]
 	path = ors-woon.github.io
 	url = https://github.com/ors-woon/ors-woon.github.io.git
+[submodule "themes/themes/PaperMod"]
+	path = themes/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
